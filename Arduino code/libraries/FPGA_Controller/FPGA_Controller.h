@@ -63,9 +63,9 @@ void uploadBitstream();
 //
 // 		         110011101  ->   1  1001  1101
 //                               ^    ^     ^ 
-// 			    				/     |      \
+//                              /     |      \
 //              Must always be 1      |       Address to read from
-//									  |
+//                                    |
 //                            Address to write to
 //
 // The 4-bit addresses can range from 0 to 14 (0b0000 to 0b1110), 15 (0b1111) means not used,
