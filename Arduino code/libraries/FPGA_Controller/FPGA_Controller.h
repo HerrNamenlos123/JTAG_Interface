@@ -89,13 +89,13 @@ void uploadBitstream();
 // correct, as the FPGA doesn't care about data types anyways.
 //
 //
-// Example of using the protocol:
+// Example of using the interface:
 //
 //	void doStuff() {
 //
-//		initJTAG();			// Initialize the protocol
+//		initJTAG();         // Initialize the interface
 //
-//		write(4, 187);		// Write the value 187 to the register with id 4 
+//		write(4, 187);      // Write the value 187 to the register with id 4 
 //
 //		int32_t result = readJTAG(7);       // Read the value on input bus 7
 //
