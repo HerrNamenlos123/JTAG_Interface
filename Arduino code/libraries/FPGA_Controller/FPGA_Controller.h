@@ -97,13 +97,13 @@ void uploadBitstream();
 //
 //		write(4, 187);		// Write the value 187 to the register with id 4 
 //
-//		int32_t result = readJTAG(7);	// Read the value on input bus 7
+//		int32_t result = readJTAG(7);       // Read the value on input bus 7
 //
-//											// Write the value 467 to register 11 while reading
+//		                                    // Write the value 467 to register 11 while reading
 //		result = readWriteJTAG(2, 11, 467);	//  the value from input bus 2
 //
-//		closeJTAG();	// Communication can be stopped when needed, but in most cases it's best to 
-//						// just let it run for the lifetime of the program
+//		closeJTAG();    // Communication can be stopped when needed, but in most cases it's best to 
+//		                // just let it run for the lifetime of the program
 //  }
 //
 
