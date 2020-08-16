@@ -120,8 +120,8 @@ void uploadBitstream() {
 
 
 
-// Now all logic for the communication protocol between the CPU and the FPGA chip
-// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// Now all logic for the communication interface between the CPU and the FPGA chip
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
 
 // Declaration of private functions, only used in this file
