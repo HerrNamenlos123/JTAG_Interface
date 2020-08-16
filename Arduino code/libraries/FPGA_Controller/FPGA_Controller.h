@@ -57,11 +57,11 @@ void uploadBitstream();
 // (Explanation of the internal workings)
 //   
 // The address is 9 bits long, while the leftmost bit is ignored and the lower 8 bits contain
-// 	 the 4-bit addresses for reading and writing.
+//   the 4-bit addresses for reading and writing.
 //
 // The following example would write to register 9 while simultaneously reading from register 13:
 //
-// 		         110011101  ->   1  1001  1101
+//               110011101  ->   1  1001  1101
 //                               ^    ^     ^ 
 //                              /     |      \
 //              Must always be 1      |       Address to read from
@@ -69,7 +69,7 @@ void uploadBitstream();
 //                            Address to write to
 //
 // The 4-bit addresses can range from 0 to 14 (0b0000 to 0b1110), 15 (0b1111) means not used,
-// 	 which writes to nothing and reads all 0s.
+//   which writes to nothing and reads all 0s.
 //
 //
 // When a communication is started, the current data on the input bus chosen by the read address in
