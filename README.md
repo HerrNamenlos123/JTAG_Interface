@@ -3,7 +3,7 @@
 ## Content
 What is the JTAG_Interface?
 
-[Go to Real Cool Heading section](# What is the JTAG_Interface?)
+[Go to Real Cool Heading section](#What is the JTAG_Interface?)
 
 How do i install it?
 
