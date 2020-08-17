@@ -1,15 +1,15 @@
 # JTAG_Interface
 
 ## Content
-[What is the JTAG_Interface?](#What-is-the-JTAG_Interface)
+[What is the JTAG_Interface?](#what-is-the-jtag_interface)
 
-[How do I install it?](#How-do-I-install-it)
+[How do I install it?](#how-do-i-install-it)
 
-[How do I use it?](#How-do-I-use-it)
+[How do I use it?](#how-do-i-use-it)
 
-[How it works internally](#How-it-works-internally)
+[How it works internally](#how-it-works-internally)
 
-[Something's not working...](#Somethings-not-working)
+[Something's not working...](#homethings-not-working)
 
 
 ## Disclaimer
@@ -48,7 +48,7 @@ Now upload the example again and see if everything is still working. If yes, you
 
 For information on how to use it, I think it's best to just look at the examples, certainly the `Arduino code/FPGA_Tester/FPGA_Tester.ino` and the Quartus project. You can either keep modifying the project or you can copy and paste all JTAG relevant modules into your own, already existing project.
 
-Well, there's not much more to say, if you're having trouble with anything, just [go to the trouble section](#Somethings-not-working).
+Well, there's not much more to say, if you're having trouble with anything, just [go to the trouble section](#somethings-not-working).
 
 
 ## How it works internally
@@ -56,3 +56,8 @@ Well, there's not much more to say, if you're having trouble with anything, just
 I won't write the explanation here, but if you still want to know more precisely how it works, take a look at the file `Arduino code/libraries/FPGA_Controller/FPGA_Controller.h`, where it is explained in quite some detail.
 
 ## Something's not working...
+
+In case something isn't working as expected or you're having trouble getting JTAG to work or you need help modifying the project to fit your needs, don't hesitate to contact me at:  
+<HerrNamenlos123@gmail.com>
+
+Don't be shy, just write like `Hey, i can't get my project to work...` and I would be glad to be helpful.
