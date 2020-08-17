@@ -28,4 +28,4 @@ Okay, it's actually not THAT exciting, but the heart of this project is a few Qu
 
 ## How do I install it?
 
-sf
+The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, all you need to do is to get the 
