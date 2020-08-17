@@ -1,6 +1,14 @@
 
 #include "FPGA_Controller.h"
 
+//
+// This is an example on how to use the JTAG_Interface: The file FPGA_Bitstream.h is
+// generated from Intel Quartus and supposed to be replaced by your own. Make sure to
+// take a look at the Quartus project, where you can copy the modules and paste into
+// your own design. By default, the FPGA_Bitstream.h is a simple example which you
+// should take a look at to understand the following code.
+//
+
 void setup() {
 
 	Serial.begin(115200); // Serial.begin() should be called before uploadBitstream
