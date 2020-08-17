@@ -5,9 +5,11 @@
 
 [How do I install it?](#How-do-I-install-it)
 
-How do I use it?
+[How do I use it?](#How-do-I-use-it)
 
-How does it work internally?
+[How it works internally](#How-it-works-internally)
+
+[Something's not working...](#Somethings-not-working)
 
 
 ## Disclaimer
@@ -41,3 +43,16 @@ The rest of it might also be interesting tho (Google translate does the trick).
 Once you successfully reversed the bitstream, simply rename it to `FPGA_Bitstream.h` and paste it into your previously created `libraries/FPGA_Controller` directory in your sketchbook. That will overwrite the default bitstream of this project and your own custom bitstream will be uploaded next time. 
 
 Now upload the example again and see if everything is still working. If yes, you can now finally start editing the Quartus project and your Arduino files to do something amazing!
+
+## How do I use it?
+
+For information on how to use it, I think it's best to just look at the examples, certainly the `Arduino code/FPGA_Tester/FPGA_Tester.ino` and the Quartus project. You can either keep modifying the project or you can copy and paste all JTAG relevant modules into your own, already existing project.
+
+Well, there's not much more to say, if you're having trouble with anything, just [go to the trouble section](#Somethings-not-working).
+
+
+## How it works internally
+
+I won't write the explanation here, but if you still want to know more precisely how it works, take a look at the file `Arduino code/libraries/FPGA_Controller/FPGA_Controller.h`, where it is explained in quite some detail.
+
+## Something's not working...
