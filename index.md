@@ -1,4 +1,3 @@
-# JTAG_Interface
 
 ## Content
 [What is the JTAG_Interface?](#what-is-the-jtag_interface)
