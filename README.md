@@ -3,7 +3,7 @@
 ## Content
 What is the JTAG_Interface?
 
-`[Go to Real Cool Heading section](#real-cool-heading)` 
+[Go to Real Cool Heading section](#real-cool-heading)
 
 How do i install it?
 
