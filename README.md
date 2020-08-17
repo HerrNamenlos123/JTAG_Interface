@@ -9,7 +9,7 @@
 
 [How it works internally](#how-it-works-internally)
 
-[Something's not working...](#homethings-not-working)
+[Something's not working...](#somethings-not-working)
 
 
 ## Disclaimer
