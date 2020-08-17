@@ -4,9 +4,25 @@
 //
 // This is an example on how to use the JTAG_Interface: The file FPGA_Bitstream.h is
 // generated from Intel Quartus and supposed to be replaced by your own. Make sure to
-// take a look at the Quartus project, where you can copy the modules and paste into
-// your own design. By default, the FPGA_Bitstream.h is a simple example which you
-// should take a look at to understand the following code.
+// take a look at the attached Quartus project, where you can extend this project or copy
+// the Verilog modules related to the JTAG interface and paste them into your own design.
+//
+// Those JTAG related modules and the corresponding attached C++ functions allow you
+// to easily and reliably send and read data from and to the FPGA. The point of this
+// project is to make it as easy as possible for any new user to establish a communication
+// between the CPU and the FPGA, as most commonly the first problem you encounter when creating
+// your own bitstream is that you lose the ability to talk to the FPGA.
+//
+// When replacing this bitstream with your own, make sure to compile it correctly with Intel Quartus
+//  (try the attached Quartus project which the default bitstream is generated from).
+//
+// When successfully compiled, take the output file ( output_files/MKRVIDOR4000.ttf ) and
+// bit-reverse it using ReverseByte. For info on that, refer to:
+//
+// 		https://systemes-embarques.fr/wp/archives/mkr-vidor-4000-programmation-du-fpga-partie-1/
+// 
+// When the bitstream is finally reversed, simply rename it to "FPGA_Bitstream.h" and paste it
+// into the FPGA_Controller folder of the library, which will overwrite the default bitstream.
 //
 
 void setup() {
@@ -19,9 +35,6 @@ void setup() {
 	while(!Serial);
 
 	Serial.println("Welcome!");
-
-	Serial.println("Uploading bitstream...");
-	Serial.println("Done Uploading!");
 
 	// Warning: The digital pins 6, 7 and 8 are configured as outputs
 	// on the FPGA, so shortening them out or configuring them as outputs
@@ -77,7 +90,7 @@ void loop() {
 	// currently is.
 	// The readWriteJTAG() function is a lot more efficient as it reads and writes at the same time
 	int32_t newValue = random(-100, 100);
-	int32_t oldValue = readWriteJTAG(13, 14, newValue);
+	int32_t oldValue = readWriteJTAG(13, 14, newValue);	// Read input #13 and write newValue to output #14
 
 	Serial.print("The register #14 just contained the value ");
 	Serial.print(oldValue);
