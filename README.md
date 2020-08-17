@@ -10,7 +10,7 @@ How do i use it?
 How does it work internally?
 
 
-# What is the JTAG_Interface?
+## What is the JTAG_Interface?
 
 The JTAG_Interface is a project to help any new developer using the Arduino MKR Vidor 4000 to establish a communication between the CPU and the FPGA. When using a default library like VidorGraphics or VidorPeripherals the FPGA magically reacts to any command you give it in the Arduino IDE. But as soon as you start to create your own bitstreams using Intel Quartus, you will quickly realize that there is no obvious way to exchange data or commands between the CPU and the FPGA anymore.
 
