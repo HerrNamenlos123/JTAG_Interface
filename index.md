@@ -106,13 +106,21 @@ to interpret the bits correctly in your design.
 Example of using the interface:
 
 	#include "FPGA_Controller.h" 
+	
 	void setup() {
+	
 		uploadBitstream();  // Upload the bitstream in FPGA_Bitstream.h to the FPGA
 		initJTAG();         // Initialize the interface, call this once on startup
+		
 		write(4, 187);      // Write the value 187 to the register with id 4 
+		
 		int32_t result = readJTAG(7);       // Read the value on input bus 7
+		
+		
 		                                    // Write the value 467 to register 11 while reading
 		result = readWriteJTAG(2, 11, 467); //  the value from input bus 2
+		
+		
 		<optional>
 		closeJTAG();    // Communication can be stopped when needed, but in most cases it's best to 
 		                // just let it run for the lifetime of the program
