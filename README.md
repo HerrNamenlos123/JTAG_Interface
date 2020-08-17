@@ -61,4 +61,4 @@ In case something isn't working as expected or you're having trouble getting JTA
 Also in case you find a bug or want to request a feature or anything similar, just contact me at:    
 <HerrNamenlos123@gmail.com>
 
-Don't be shy, just write like `Hey, i can't get my project to work...` and I would be glad to be helpful.
+Don't be shy, just write like politely `Hey, i can't get my project to work...` and I would be glad to be helpful.
