@@ -57,8 +57,11 @@ I won't write the explanation here, but if you still want to know more precisely
 
 ## Something's not working...
 
-In case something isn't working as expected or you're having trouble getting JTAG to work or you need help modifying the project to fit your needs, don't hesitate to contact me.
-Also in case you find a bug or want to request a feature or anything similar, just contact me at:    
+In case something isn't working as expected or you're having trouble getting JTAG to work or you need help modifying the project to fit your needs, don't hesitate to contact me at:  
 <HerrNamenlos123@gmail.com>
 
 Don't be shy, just write like politely `Hey, i can't get my project to work...` and I would be glad to be helpful.
+
+Also, in case you find a bug or want to request a feature or anything similar, please go to the issues tab of the repository and create an issue.
+
+Now as that's out of the way, let's get coding and create something amazing!
