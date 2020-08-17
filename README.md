@@ -3,9 +3,9 @@
 ## Content
 [What is the JTAG_Interface?](#What-is-the-JTAG_Interface)
 
-How do i install it?
+[How do I install it?](#How-do-I-install-it)
 
-How do i use it?
+How do I use it?
 
 How does it work internally?
 
@@ -25,3 +25,7 @@ The JTAG_Interface is a project to help any new developer using the Arduino MKR 
 Well, this has changed now! May I introduce: The JTAG_Interface!
 
 Okay, it's actually not THAT exciting, but the heart of this project is a few Quartus modules for your custom bitstream and a few C++ files you can include in your Arduino program. This not only cares about communication via JTAG, but it also cares for you about uploading the bitstream to the FPGA, so this could be seen as a general template for custom FPGA bitstreams.
+
+## How do I install it?
+
+sf
