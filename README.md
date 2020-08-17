@@ -62,6 +62,6 @@ In case something isn't working as expected or you're having trouble getting JTA
 
 Don't be shy, just write like politely `Hey, i can't get my project to work...` and I would be glad to be helpful.
 
-Also, in case you find a bug or want to request a feature or anything similar, please go to the issues tab of the repository and create an issue.
+Also, in case you find a bug or want to request a feature or anything similar, please go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) of the repository and create an issue.
 
 Now as that's out of the way, let's get coding and create something amazing!
