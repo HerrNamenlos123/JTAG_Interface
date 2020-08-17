@@ -17,6 +17,8 @@ This piece of software is open source and you can use it for anything you like. 
 Credit also goes to @riccardo_giacomazzi aka [Giako68](https://github.com/Giako68), who not only helped me in the Arduino forum, but also published a Vidor 4000 FPGA project which also uses JTAG. This project partially inspired my JTAG_Interface and parts of it are based on his TiledScreen application:
 https://github.com/Giako68/TiledScreen
 
+This project is written with the intention to be useful to as many people as possible and I do not feel responsible for any damages that might occur to your device. 
+
 
 ## What is the JTAG_Interface?
 
@@ -28,10 +30,12 @@ Okay, it's actually not THAT exciting, but the heart of this project is a few Qu
 
 ## How do I install it?
 
-The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `"Arduino code/libraries/"`, copy the folder "FPGA_Controller" and paste it into the libraries folder in your Sketchbook (Your sketchbook location is usually ".../Documents/Arduino"). The library is now installed! To get a first test running all you need to do is to open the file "Arduino code/FPGA_Tester/FPGA_Tester.ino" with the Arduino IDE and upload it. Now everything should be working!
+The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `Arduino code/libraries/`, copy the folder `FPGA_Controller` and paste it into the libraries folder in your Sketchbook (Your sketchbook location is usually `.../Documents/Arduino`). The library is now installed! To get a first test running all you need to do is to open the file `Arduino code/FPGA_Tester/FPGA_Tester.ino` with the Arduino IDE and upload it. Now everything should be working!
 
-If you now want to go further, you can open the Intel Quartus project with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file ("FPGA code/projects/JTAG_PenetrationTest/output_files/MKRVIDOR4000.ttf"). For that, refer to the following page:
+If you now want to go further, you can open the Intel Quartus project with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file (`FPGA code/projects/JTAG_PenetrationTest/output_files/MKRVIDOR4000.ttf`). For that, refer to the following page:
 
 https://systemes-embarques.fr/wp/archives/mkr-vidor-4000-programmation-du-fpga-partie-1/
 
-Once you successfully reversed the bitstream, simply rename it to "FPGA_Bitstream.h" and paste it into your previously created libraries/FPGA_Controller directory in your sketchbook. That will overwrite the default bitstream of this project and your own custom bitstream will be uploaded next time. 
+Once you successfully reversed the bitstream, simply rename it to `FPGA_Bitstream.h` and paste it into your previously created `libraries/FPGA_Controller` directory in your sketchbook. That will overwrite the default bitstream of this project and your own custom bitstream will be uploaded next time. 
+
+Now upload the example again and see if everything is still working. If yes, you can now finally start editing the Quartus project and your Arduino files to something amazing!
