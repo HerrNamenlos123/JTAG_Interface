@@ -16,7 +16,7 @@
 This piece of software is open source and you can use it for anything you like. You can download, modify and even publish projects using it, but whenever publishing a project that uses parts or at least code snippets of this repository, you need to give me credit somewhere.
 
 Credit also goes to @riccardo_giacomazzi aka [Giako68](https://github.com/Giako68), who not only helped me in the Arduino forum, but also published a Vidor 4000 FPGA project which also uses JTAG. This project partially inspired my JTAG_Interface and parts of it are based on his TiledScreen application:
-https://github.com/Giako68/TiledScreen
+[https://github.com/Giako68/TiledScreen](https://github.com/Giako68/TiledScreen)
 
 This project is written with the intention to be useful to as many people as possible and I do not feel responsible for any damages that might occur to your device. 
 
