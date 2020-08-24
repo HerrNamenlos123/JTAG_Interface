@@ -1,0 +1,28 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate "F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG.qsys" --block-symbol-file --output-directory="F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG" --family="Cyclone 10 LP" --part=10CL016YU256C8G
+Progress: Loading JTAG_PenetrationTest/JTAG.qsys
+Progress: Reading input file
+Progress: Adding virtual_jtag_0 [altera_virtual_jtag 18.1]
+Progress: Parameterizing module virtual_jtag_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate "F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG.qsys" --synthesis=VERILOG --output-directory="F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG\synthesis" --family="Cyclone 10 LP" --part=10CL016YU256C8G
+Progress: Loading JTAG_PenetrationTest/JTAG.qsys
+Progress: Reading input file
+Progress: Adding virtual_jtag_0 [altera_virtual_jtag 18.1]
+Progress: Parameterizing module virtual_jtag_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: JTAG: Generating JTAG "JTAG" for QUARTUS_SYNTH
+Info: virtual_jtag_0: "JTAG" instantiated altera_virtual_jtag "virtual_jtag_0"
+Info: JTAG: Done "JTAG" with 2 modules, 1 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

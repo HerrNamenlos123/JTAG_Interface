@@ -1,0 +1,288 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 264 416)
+	(text "JTAG_Memory" (rect 5 0 72 12)(font "Arial" ))
+	(text "inst" (rect 8 384 20 396)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "iADDRESS[8..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "iADDRESS[8..0]" (rect 21 27 91 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "iTCK" (rect 0 0 21 12)(font "Arial" ))
+		(text "iTCK" (rect 21 43 42 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "iTDI" (rect 0 0 16 12)(font "Arial" ))
+		(text "iTDI" (rect 21 59 37 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "iSTATE_SDR" (rect 0 0 61 12)(font "Arial" ))
+		(text "iSTATE_SDR" (rect 21 75 82 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "iSTATE_CDR" (rect 0 0 62 12)(font "Arial" ))
+		(text "iSTATE_CDR" (rect 21 91 83 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "iSTATE_UDR" (rect 0 0 62 12)(font "Arial" ))
+		(text "iSTATE_UDR" (rect 21 107 83 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "iREAD_0[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_0[31..0]" (rect 21 123 87 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "iREAD_1[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "iREAD_1[31..0]" (rect 21 139 85 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "iREAD_2[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_2[31..0]" (rect 21 155 87 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "iREAD_3[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_3[31..0]" (rect 21 171 87 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "iREAD_4[31..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "iREAD_4[31..0]" (rect 21 187 88 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "iREAD_5[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_5[31..0]" (rect 21 203 87 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "iREAD_6[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_6[31..0]" (rect 21 219 87 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 3))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "iREAD_7[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_7[31..0]" (rect 21 235 87 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "iREAD_8[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_8[31..0]" (rect 21 251 87 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "iREAD_9[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "iREAD_9[31..0]" (rect 21 267 87 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 3))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "iREAD_A[31..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "iREAD_A[31..0]" (rect 21 283 90 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 3))
+	)
+	(port
+		(pt 0 304)
+		(input)
+		(text "iREAD_B[31..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "iREAD_B[31..0]" (rect 21 299 88 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304)(line_width 3))
+	)
+	(port
+		(pt 0 320)
+		(input)
+		(text "iREAD_C[31..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "iREAD_C[31..0]" (rect 21 315 89 327)(font "Arial" ))
+		(line (pt 0 320)(pt 16 320)(line_width 3))
+	)
+	(port
+		(pt 0 336)
+		(input)
+		(text "iREAD_D[31..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "iREAD_D[31..0]" (rect 21 331 89 343)(font "Arial" ))
+		(line (pt 0 336)(pt 16 336)(line_width 3))
+	)
+	(port
+		(pt 0 352)
+		(input)
+		(text "iREAD_E[31..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "iREAD_E[31..0]" (rect 21 347 89 359)(font "Arial" ))
+		(line (pt 0 352)(pt 16 352)(line_width 3))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "oWRITE_0[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_0[31..0]" (rect 154 27 227 39)(font "Arial" ))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "oWRITE_1[31..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "oWRITE_1[31..0]" (rect 156 43 227 55)(font "Arial" ))
+		(line (pt 248 48)(pt 232 48)(line_width 3))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "oWRITE_2[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_2[31..0]" (rect 154 59 227 71)(font "Arial" ))
+		(line (pt 248 64)(pt 232 64)(line_width 3))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "oWRITE_3[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_3[31..0]" (rect 154 75 227 87)(font "Arial" ))
+		(line (pt 248 80)(pt 232 80)(line_width 3))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "oWRITE_4[31..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "oWRITE_4[31..0]" (rect 153 91 227 103)(font "Arial" ))
+		(line (pt 248 96)(pt 232 96)(line_width 3))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "oWRITE_5[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_5[31..0]" (rect 154 107 227 119)(font "Arial" ))
+		(line (pt 248 112)(pt 232 112)(line_width 3))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "oWRITE_6[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_6[31..0]" (rect 154 123 227 135)(font "Arial" ))
+		(line (pt 248 128)(pt 232 128)(line_width 3))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "oWRITE_7[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_7[31..0]" (rect 154 139 227 151)(font "Arial" ))
+		(line (pt 248 144)(pt 232 144)(line_width 3))
+	)
+	(port
+		(pt 248 160)
+		(output)
+		(text "oWRITE_8[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_8[31..0]" (rect 154 155 227 167)(font "Arial" ))
+		(line (pt 248 160)(pt 232 160)(line_width 3))
+	)
+	(port
+		(pt 248 176)
+		(output)
+		(text "oWRITE_9[31..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "oWRITE_9[31..0]" (rect 154 171 227 183)(font "Arial" ))
+		(line (pt 248 176)(pt 232 176)(line_width 3))
+	)
+	(port
+		(pt 248 192)
+		(output)
+		(text "oWRITE_A[31..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "oWRITE_A[31..0]" (rect 151 187 227 199)(font "Arial" ))
+		(line (pt 248 192)(pt 232 192)(line_width 3))
+	)
+	(port
+		(pt 248 208)
+		(output)
+		(text "oWRITE_B[31..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "oWRITE_B[31..0]" (rect 153 203 227 215)(font "Arial" ))
+		(line (pt 248 208)(pt 232 208)(line_width 3))
+	)
+	(port
+		(pt 248 224)
+		(output)
+		(text "oWRITE_C[31..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "oWRITE_C[31..0]" (rect 152 219 227 231)(font "Arial" ))
+		(line (pt 248 224)(pt 232 224)(line_width 3))
+	)
+	(port
+		(pt 248 240)
+		(output)
+		(text "oWRITE_D[31..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "oWRITE_D[31..0]" (rect 152 235 227 247)(font "Arial" ))
+		(line (pt 248 240)(pt 232 240)(line_width 3))
+	)
+	(port
+		(pt 248 256)
+		(output)
+		(text "oWRITE_E[31..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "oWRITE_E[31..0]" (rect 152 251 227 263)(font "Arial" ))
+		(line (pt 248 256)(pt 232 256)(line_width 3))
+	)
+	(port
+		(pt 248 272)
+		(output)
+		(text "oTDO" (rect 0 0 24 12)(font "Arial" ))
+		(text "oTDO" (rect 203 267 227 279)(font "Arial" ))
+		(line (pt 248 272)(pt 232 272)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 384)(line_width 1))
+	)
+)

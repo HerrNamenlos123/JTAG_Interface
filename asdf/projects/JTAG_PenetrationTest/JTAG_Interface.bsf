@@ -1,0 +1,246 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 264 336)
+	(text "JTAG_Interface" (rect 5 0 97 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 299 24 316)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "iCLK" (rect 0 0 27 19)(font "Intel Clear" (font_size 8)))
+		(text "iCLK" (rect 21 27 48 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "iREAD_0[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_0[31..0]" (rect 21 43 111 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "iREAD_1[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_1[31..0]" (rect 21 59 111 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "iREAD_2[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_2[31..0]" (rect 21 75 111 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "iREAD_3[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_3[31..0]" (rect 21 91 111 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "iREAD_4[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_4[31..0]" (rect 21 107 111 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "iREAD_5[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_5[31..0]" (rect 21 123 111 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "iREAD_6[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_6[31..0]" (rect 21 139 111 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "iREAD_7[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_7[31..0]" (rect 21 155 111 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "iREAD_8[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_8[31..0]" (rect 21 171 111 190)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "iREAD_9[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_9[31..0]" (rect 21 187 111 206)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "iREAD_A[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_A[31..0]" (rect 21 203 111 222)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "iREAD_B[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_B[31..0]" (rect 21 219 111 238)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 224)(pt 16 224)(line_width 3))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "iREAD_C[31..0]" (rect 0 0 90 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_C[31..0]" (rect 21 235 111 254)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 240)(pt 16 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "iREAD_D[31..0]" (rect 0 0 92 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_D[31..0]" (rect 21 251 113 270)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 256)(pt 16 256)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "iREAD_E[31..0]" (rect 0 0 89 19)(font "Intel Clear" (font_size 8)))
+		(text "iREAD_E[31..0]" (rect 21 267 110 286)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 272)(pt 16 272)(line_width 3))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "oWRITE_0[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_0[31..0]" (rect 127 27 227 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "oWRITE_1[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_1[31..0]" (rect 127 43 227 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 48)(pt 232 48)(line_width 3))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "oWRITE_2[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_2[31..0]" (rect 127 59 227 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 64)(pt 232 64)(line_width 3))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "oWRITE_3[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_3[31..0]" (rect 127 75 227 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 80)(pt 232 80)(line_width 3))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "oWRITE_4[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_4[31..0]" (rect 127 91 227 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 96)(pt 232 96)(line_width 3))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "oWRITE_5[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_5[31..0]" (rect 127 107 227 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 112)(pt 232 112)(line_width 3))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "oWRITE_6[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_6[31..0]" (rect 127 123 227 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 128)(pt 232 128)(line_width 3))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "oWRITE_7[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_7[31..0]" (rect 127 139 227 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 144)(pt 232 144)(line_width 3))
+	)
+	(port
+		(pt 248 160)
+		(output)
+		(text "oWRITE_8[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_8[31..0]" (rect 127 155 227 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 160)(pt 232 160)(line_width 3))
+	)
+	(port
+		(pt 248 176)
+		(output)
+		(text "oWRITE_9[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_9[31..0]" (rect 127 171 227 190)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 176)(pt 232 176)(line_width 3))
+	)
+	(port
+		(pt 248 192)
+		(output)
+		(text "oWRITE_A[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_A[31..0]" (rect 127 187 227 206)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 192)(pt 232 192)(line_width 3))
+	)
+	(port
+		(pt 248 208)
+		(output)
+		(text "oWRITE_B[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_B[31..0]" (rect 127 203 227 222)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 208)(pt 232 208)(line_width 3))
+	)
+	(port
+		(pt 248 224)
+		(output)
+		(text "oWRITE_C[31..0]" (rect 0 0 100 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_C[31..0]" (rect 127 219 227 238)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 224)(pt 232 224)(line_width 3))
+	)
+	(port
+		(pt 248 240)
+		(output)
+		(text "oWRITE_D[31..0]" (rect 0 0 101 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_D[31..0]" (rect 126 235 227 254)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 240)(pt 232 240)(line_width 3))
+	)
+	(port
+		(pt 248 256)
+		(output)
+		(text "oWRITE_E[31..0]" (rect 0 0 99 19)(font "Intel Clear" (font_size 8)))
+		(text "oWRITE_E[31..0]" (rect 128 251 227 270)(font "Intel Clear" (font_size 8)))
+		(line (pt 248 256)(pt 232 256)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 304))
+	)
+)
