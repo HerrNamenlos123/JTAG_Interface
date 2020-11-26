@@ -34,15 +34,15 @@ Okay, it's actually not THAT exciting, but the heart of this project is a few Qu
 
 ## How do I install it?
 
-The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `Arduino code/libraries/`, copy the folder `FPGA_Controller` and paste it into the libraries folder in your Sketchbook (Your sketchbook location is usually `.../Documents/Arduino`). The library is now installed! To get a first test running all you need to do is to open the file `Arduino code/FPGA_Tester/FPGA_Tester.ino` with the Arduino IDE and upload it. Now everything should be working!
+The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `Arduino code/libraries/`, copy the folder `FPGA_Controller` and paste it into the libraries folder in your Sketchbook (Your sketchbook location is by default `C:/Users/<USERNAME>/Documents/Arduino`). The library is now installed! To get a first test running all you need to do is to open the file `Arduino code/FPGA_Tester/FPGA_Tester.ino` from the repository with the Arduino IDE and upload it. Now everything should be working!
 
-If you now want to go further, you can open the Intel Quartus project with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file (`FPGA code/projects/JTAG_PenetrationTest/output_files/MKRVIDOR4000.ttf`). For that, refer to my reply i posted to this topic:
+If you now want to go further, you can open the Intel Quartus project with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file (`FPGA code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf`). For that, refer to my reply i posted to this topic:
 
 https://forum.arduino.cc/index.php?topic=700223.msg4710460#msg4710460
 
-Once you successfully reversed the bitstream, simply rename it to `FPGA_Bitstream.h` and paste it into your previously created `libraries/FPGA_Controller` directory in your sketchbook. That will overwrite the default bitstream of this project and your own custom bitstream will be uploaded next time.
+Once you successfully reversed the bitstream, simply rename it to `FPGA_Bitstream.h` if the output of the script was something different and paste it into your previously pasted `libraries/FPGA_Controller` directory in your sketchbook. That will overwrite the default bitstream of this project and your own custom bitstream will be uploaded next time.
 
-Make sure to use the script i posted in the answer above, which will make it very easy for you to regenerate the bitstream automatically. 
+Make sure to use the script i posted in the linked forum post above, which will make it very easy for you to regenerate the bitstream automatically. 
 
 Now upload the example again and see if everything is still working. If yes, you can now finally start editing the Quartus project and your Arduino files to do something amazing!
 
