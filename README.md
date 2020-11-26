@@ -32,11 +32,15 @@ Well, this has changed now! May I introduce: The JTAG_Interface!
 
 Okay, it's actually not THAT exciting, but the heart of this project is a few Quartus modules for your custom bitstream and a few C++ files you can include in your Arduino program. This not only cares about communication via JTAG, but it also cares for you about uploading the bitstream to the FPGA, so this could be seen as a general template for custom FPGA bitstreams.
 
+Here you can see the main module for Intel Quartus:
+
+![JTAG_Interface module](https://github.com/HerrNamenlos123/JTAG_Interface/blob/master/images/interface.png)
+
 ## How do I install it?
 
 The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `Arduino code/libraries/`, copy the folder `FPGA_Controller` and paste it into the libraries folder in your Sketchbook (Your sketchbook location is by default `C:/Users/<USERNAME>/Documents/Arduino`). The library is now installed! To get a first test running all you need to do is to open the file `Arduino code/FPGA_Tester/FPGA_Tester.ino` from the repository with the Arduino IDE and upload it. Now everything should be working!
 
-If you now want to go further, you can open the Intel Quartus project with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file (`FPGA code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf`). For that, refer to my reply i posted to this topic:
+If you now want to go further, you can open the Intel Quartus project `FPGA code/projects/JTAG_Interface/MKRVIDOR4000.qpf` with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file (`FPGA code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf`). For that, refer to my reply i posted to this topic:
 
 https://forum.arduino.cc/index.php?topic=700223.msg4710460#msg4710460
 
@@ -50,12 +54,18 @@ Now upload the example again and see if everything is still working. If yes, you
 
 For information on how to use it, I think it's best to just look at the examples, certainly the `Arduino code/FPGA_Tester/FPGA_Tester.ino` and the Quartus project. You can either keep modifying the project or you can copy and paste all JTAG relevant modules into your own, already existing project.
 
-Well, there's not much more to say, if you're having trouble with anything, just [go to the trouble section](#somethings-not-working).
+Here you can see the example file, which is `FPGA code/projects/JTAG_Interface/MyDesign.bdf`.
+
+![JTAG_Interface example usage](https://github.com/HerrNamenlos123/JTAG_Interface/blob/master/images/example.png)
+
+If you want to start creating your own designs, open `MKRVIDOR4000_top.v`. This is where everything is based on and from here you can route any signals to your own designs, like it is done with `MyDesign.bdf`.
+
+Well, there's not much more to say, try playing around and if you're having trouble with anything just [go to the trouble section](#somethings-not-working).
 
 
 ## How it works internally
 
-I won't write the explanation here, but if you still want to know more precisely how it works, take a look at the file `Arduino code/libraries/FPGA_Controller/FPGA_Controller.h`, where it is explained in quite some detail.
+I won't write the explanation here, but if you still want to know more precisely how it works, take a look at the file `Arduino code/libraries/FPGA_Controller/FPGA_Controller.h` where it is explained in quite some detail.
 
 ## Something's not working...
 
