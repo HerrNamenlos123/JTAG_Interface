@@ -36,6 +36,8 @@ Here you can see the main module for Intel Quartus:
 
 ![JTAG_Interface module](https://github.com/HerrNamenlos123/JTAG_Interface/blob/master/images/interface.png)
 
+This module simply needs a clock, I would recommend the 120 MHz clock `wCLK120`. Besides that, only the software on the MCU must be running correctly, then everything should work. Whenever your program calls a writeJTAG or readJTAG or readWriteJTAG function, the value currently on the left side of the module from the corresponding index is read and the given value is written into memory and will stay on the right side of the module until it is overwritten.
+
 ## How do I install it?
 
 The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `Arduino code/libraries/`, copy the folder `FPGA_Controller` and paste it into the libraries folder in your Sketchbook (Your sketchbook location is by default `C:/Users/<USERNAME>/Documents/Arduino`). The library is now installed! To get a first test running all you need to do is to open the file `Arduino code/FPGA_Tester/FPGA_Tester.ino` from the repository with the Arduino IDE and upload it. Now everything should be working!
