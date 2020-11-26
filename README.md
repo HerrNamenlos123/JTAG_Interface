@@ -54,7 +54,7 @@ Now upload the example again and see if everything is still working. If yes, you
 
 ## How do I use it?
 
-For information on how to use it, I think it's best to just look at the examples, certainly the `Arduino code/FPGA_Tester/FPGA_Tester.ino` and the Quartus project. You can either keep modifying the project or you can copy and paste all JTAG relevant modules into your own, already existing project.
+For information on how to use it I think it's best to just look at the example `Arduino code/FPGA_Tester/FPGA_Tester.ino` and the Quartus project. You can either keep modifying the project or you can copy and paste all JTAG relevant modules into your own, already existing project.
 
 Here you can see the example file, which is `FPGA code/projects/JTAG_Interface/MyDesign.bdf`.
 
