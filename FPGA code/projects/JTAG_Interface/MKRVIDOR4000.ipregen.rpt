@@ -1,6 +1,6 @@
 IP Upgrade report for MKRVIDOR4000
-Sun Aug 16 17:11:50 2020
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Mon Oct 18 14:42:27 2021
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -9,16 +9,17 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   1. Legal Notice
   2. IP Upgrade Summary
   3. Successfully Upgraded IP Components
-  4. IP Upgrade Messages
+  4. Failed Upgrade IP Components
+  5. IP Upgrade Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -28,15 +29,16 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +----------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                         ;
 +------------------------------+---------------------------------------------+
-; IP Components Upgrade Status ; Passed - Sun Aug 16 17:11:50 2020           ;
-; Quartus Prime Version        ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; IP Components Upgrade Status ; Passed - Mon Oct 18 14:42:27 2021           ;
+; Quartus Prime Version        ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                ; MKRVIDOR4000                                ;
 ; Top-level Entity Name        ; MKRVIDOR4000_top                            ;
 ; Family                       ; Cyclone 10 LP                               ;
@@ -48,21 +50,35 @@ refer to the applicable agreement for further details.
 +-------------+----------------+---------+------------------------------------+----------------------------------+------------------------------------+---------+
 ; Entity Name ; Component Name ; Version ; Original Source File               ; Generation File Path             ; New Source File                    ; Message ;
 +-------------+----------------+---------+------------------------------------+----------------------------------+------------------------------------+---------+
-; SYSTEM_PLL  ; ALTPLL         ; 18.0    ; ../../ip/SYSTEM_PLL/SYSTEM_PLL.qip ; ../../ip/SYSTEM_PLL/SYSTEM_PLL.v ; ../../ip/SYSTEM_PLL/SYSTEM_PLL.qip ;         ;
+; SYSTEM_PLL  ; ALTPLL         ; 18.1    ; ../../ip/SYSTEM_PLL/SYSTEM_PLL.qip ; ../../ip/SYSTEM_PLL/SYSTEM_PLL.v ; ../../ip/SYSTEM_PLL/SYSTEM_PLL.qip ;         ;
 +-------------+----------------+---------+------------------------------------+----------------------------------+------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Failed Upgrade IP Components                                                                                                                                        ;
++-------------+---------------------+---------+-------------------------+----------------------+-----------------+----------------------------------------------------+
+; Entity Name ; Component Name      ; Version ; Original Source File    ; Generation File Path ; New Source File ; Message                                            ;
++-------------+---------------------+---------+-------------------------+----------------------+-----------------+----------------------------------------------------+
+; JTAG        ; altera_virtual_jtag ; 18.1    ; JTAG/synthesis/JTAG.qip ; JTAG.qsys            ;                 ; Error upgrading Platform Designer file "JTAG.qsys" ;
++-------------+---------------------+---------+-------------------------+----------------------+-----------------+----------------------------------------------------+
 
 
 +---------------------+
 ; IP Upgrade Messages ;
 +---------------------+
+Info (11902): Backing up file "JTAG/synthesis/JTAG.v" to "JTAG.BAK.v"
+Info (11837): Started upgrading IP component altera_virtual_jtag with file "JTAG.qsys"
+Error: 2021.10.18.14:42:24 Error: Error opening F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA code/projects/JTAG_Interface
+Error (14923): Error upgrading Platform Designer file "JTAG.qsys"
 Info (11902): Backing up file "../../ip/SYSTEM_PLL/SYSTEM_PLL.v" to "../../ip/SYSTEM_PLL/SYSTEM_PLL.BAK.v"
 Info (11837): Started upgrading IP component ALTPLL with file "../../ip/SYSTEM_PLL/SYSTEM_PLL.v"
+Error (11890): Unable to automatically upgrade Platform Designer component. Please manually upgrade "JTAG.qsys" in Platform Designer
 Info (11131): Completed upgrading IP component ALTPLL with file "../../ip/SYSTEM_PLL/SYSTEM_PLL.v"
-Info (23030): Evaluation of Tcl script c:/intelfpga_lite/18.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4807 megabytes
-    Info: Processing ended: Sun Aug 16 17:11:50 2020
-    Info: Elapsed time: 00:00:32
-    Info: Total CPU time (on all processors): 00:00:56
+Error (23031): Evaluation of Tcl script c:/intelfpga_lite/20.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl unsuccessful
+Error: Quartus Prime Shell was unsuccessful. 4 errors, 0 warnings
+    Error: Peak virtual memory: 4849 megabytes
+    Error: Processing ended: Mon Oct 18 14:42:27 2021
+    Error: Elapsed time: 00:00:25
+    Error: Total CPU time (on all processors): 00:00:47
 
 

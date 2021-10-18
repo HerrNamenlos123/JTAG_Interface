@@ -1,150 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EnsembleReport name="JTAG" kind="system" version="20.1" fabric="QSYS">
+<EnsembleReport name="JTAG" kind="JTAG" version="1.0" fabric="QSYS">
  <!-- Format version 20.1 711 (Future versions may contain additional information.) -->
- <!-- 2021.10.18.14:54:49 -->
+ <!-- 2021.10.18.14:54:46 -->
  <!-- A collection of modules and connections -->
- <parameter name="clockCrossingAdapter">
-  <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
-  <value>HANDSHAKE</value>
+ <parameter name="AUTO_GENERATION_ID">
+  <type>java.lang.Integer</type>
+  <value>1634561686</value>
   <derived>false</derived>
   <enabled>true</enabled>
-  <visible>true</visible>
+  <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>GENERATION_ID</sysinfo_type>
  </parameter>
- <parameter name="device">
+ <parameter name="AUTO_UNIQUE_ID">
   <type>java.lang.String</type>
-  <value>10CL016YU256C8G</value>
+  <value></value>
   <derived>false</derived>
   <enabled>true</enabled>
-  <visible>true</visible>
+  <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>UNIQUE_ID</sysinfo_type>
  </parameter>
- <parameter name="deviceFamily">
+ <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
   <value>CYCLONE10LP</value>
   <derived>false</derived>
   <enabled>true</enabled>
-  <visible>true</visible>
+  <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
  </parameter>
- <parameter name="deviceSpeedGrade">
+ <parameter name="AUTO_DEVICE">
+  <type>java.lang.String</type>
+  <value>10CL016YU256C8G</value>
+  <derived>false</derived>
+  <enabled>true</enabled>
+  <visible>false</visible>
+  <valid>true</valid>
+  <sysinfo_type>DEVICE</sysinfo_type>
+ </parameter>
+ <parameter name="AUTO_DEVICE_SPEEDGRADE">
   <type>java.lang.String</type>
   <value>8</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
  </parameter>
- <parameter name="fabricMode">
-  <type>com.altera.sopcmodel.ensemble.Ensemble$EFabricMode</type>
-  <value>QSYS</value>
+ <parameter name="deviceFamily">
+  <type>java.lang.String</type>
+  <value>Cyclone 10 LP</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
  </parameter>
  <parameter name="generateLegacySim">
   <type>boolean</type>
   <value>false</value>
   <derived>false</derived>
   <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="generationId">
-  <type>int</type>
-  <value>1634561686</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
   <visible>true</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="globalResetBus">
-  <type>boolean</type>
-  <value>false</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="hdlLanguage">
-  <type>com.altera.entityinterfaces.moduleext.IModuleGenerateHDL$HDLLanguage</type>
-  <value>VERILOG</value>
-  <derived>false</derived>
-  <enabled>false</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="hideFromIPCatalog">
-  <type>boolean</type>
-  <value>true</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>true</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="lockedInterfaceDefinition">
-  <type>com.altera.sopcmodel.definition.BoundaryDefinition</type>
-  <value></value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="maxAdditionalLatency">
-  <type>int</type>
-  <value>1</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>true</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="projectName">
-  <type>java.lang.String</type>
-  <value></value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="sopcBorderPoints">
-  <type>boolean</type>
-  <value>false</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="systemHash">
-  <type>long</type>
-  <value>0</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="testBenchDutName">
-  <type>java.lang.String</type>
-  <value></value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="timeStamp">
-  <type>long</type>
-  <value>0</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
- </parameter>
- <parameter name="useTestBenchNamingPattern">
-  <type>boolean</type>
-  <value>false</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
   <valid>true</valid>
  </parameter>
  <module
@@ -425,5 +343,5 @@ parameters are a RESULT of the module parameters. -->
   <version>20.1</version>
  </plugin>
  <reportVersion>20.1 711</reportVersion>
- <uniqueIdentifier>28D244226A490000017C93780381</uniqueIdentifier>
+ <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>

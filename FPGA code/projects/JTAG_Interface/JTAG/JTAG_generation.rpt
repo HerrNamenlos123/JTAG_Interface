@@ -1,8 +1,8 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate "F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG.qsys" --block-symbol-file --output-directory="F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG" --family="Cyclone 10 LP" --part=10CL016YU256C8G
-Progress: Loading JTAG_PenetrationTest/JTAG.qsys
+Info: qsys-generate "F:\Users\Florian\Documents\Sketchbook\JTAG_Interface\FPGA code\projects\JTAG_Interface\JTAG.qsys" --block-symbol-file --output-directory="F:\Users\Florian\Documents\Sketchbook\JTAG_Interface\FPGA code\projects\JTAG_Interface\JTAG" --family="Cyclone 10 LP" --part=10CL016YU256C8G
+Progress: Loading JTAG_Interface/JTAG.qsys
 Progress: Reading input file
-Progress: Adding virtual_jtag_0 [altera_virtual_jtag 18.1]
+Progress: Adding virtual_jtag_0 [altera_virtual_jtag 20.1]
 Progress: Parameterizing module virtual_jtag_0
 Progress: Building connections
 Progress: Parameterizing connections
@@ -12,10 +12,10 @@ Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate "F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG.qsys" --synthesis=VERILOG --output-directory="F:\Documents\CNC\Quartus projects\JTAG_Interface_PenetrationTest\projects\JTAG_PenetrationTest\JTAG\synthesis" --family="Cyclone 10 LP" --part=10CL016YU256C8G
-Progress: Loading JTAG_PenetrationTest/JTAG.qsys
+Info: qsys-generate "F:\Users\Florian\Documents\Sketchbook\JTAG_Interface\FPGA code\projects\JTAG_Interface\JTAG.qsys" --synthesis=VERILOG --output-directory="F:\Users\Florian\Documents\Sketchbook\JTAG_Interface\FPGA code\projects\JTAG_Interface\JTAG\synthesis" --family="Cyclone 10 LP" --part=10CL016YU256C8G
+Progress: Loading JTAG_Interface/JTAG.qsys
 Progress: Reading input file
-Progress: Adding virtual_jtag_0 [altera_virtual_jtag 18.1]
+Progress: Adding virtual_jtag_0 [altera_virtual_jtag 20.1]
 Progress: Parameterizing module virtual_jtag_0
 Progress: Building connections
 Progress: Parameterizing connections
