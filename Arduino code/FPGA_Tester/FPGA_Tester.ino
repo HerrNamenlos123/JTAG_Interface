@@ -23,7 +23,7 @@
 // 
 // When the bitstream is finally reversed, simply rename it to "FPGA_Bitstream.h" and paste it
 // into the FPGA_Controller folder of the library, which will overwrite the default bitstream.
-// 
+//
 
 void setup() {
 
