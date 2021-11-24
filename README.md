@@ -15,7 +15,7 @@
 
 ## Test
 
-```c++:Arduino code/FPGA_Tester/FPGA_Tester.ino
+```c++
 
 ```
 
