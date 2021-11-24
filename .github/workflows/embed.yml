@@ -1,9 +1,11 @@
-name: Embed code in README
+name: Test code and embed into README
 
-on: [push, pull_request]
-
+on:
+  pull_request:
+    branches:
+      - main
 jobs:
-  embed-code:
+  readme-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,10 +13,21 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
           ref: refs/heads/${{ github.head_ref }}
+          
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Test with pytest
+        run: pytest test_src
 
-      - uses: tokusumi/markdown-embed-code@main
+      - name: embedding readme
+        uses: tokusumi/markdown-embed-code@v1.0.0
         with:
           markdown: "README.md"
           token: ${{ secrets.GITHUB_TOKEN }}
-          message: "synchronizing Readme"
-          silent: true
+          message: "auto commit for embedding"
+          no_change: "No change on Readme."
+          silent: false
