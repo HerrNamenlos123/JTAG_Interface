@@ -82,13 +82,12 @@ const unsigned char bitstream[] = {
 
 void uploadBitstream() {
 
-  int ret;
   uint32_t ptr[1];
 
   enableFpgaClock();
 
   //Init Jtag Port
-  ret = jtagInit();
+  jtagInit();
   mbPinSet();
 
   // Load FPGA user configuration
@@ -273,6 +272,22 @@ int32_t readWriteJTAG(uint8_t readAddress, uint8_t writeAddress, int32_t value) 
 
 // Now all necessary, slightly modified parts from the jtag_host.cpp file
 // taken from the official VidorPeripherals library
+
+#ifdef TMS
+#undef TMS
+#endif
+
+#ifdef TCK
+#undef TCK
+#endif
+
+#ifdef TDO
+#undef TDO
+#endif
+
+#ifdef TDI
+#undef TDI
+#endif
 
 #define TMS     28 // PA14             | SERCOM2/ PAD[2]
 #define TCK     27 // PA13 -> SPI CLK  | SERCOM2/ PAD[1]

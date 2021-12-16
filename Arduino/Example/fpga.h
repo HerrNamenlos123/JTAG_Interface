@@ -63,7 +63,7 @@ void uploadBitstream();
 //
 //               110011101  ->   1  1001  1101
 //                               ^    ^     ^ 
-//                              /     |      \
+//                              /     |      \                                                   .
 //              Must always be 1      |       Address to read from
 //                                    |
 //                            Address to write to

@@ -57,7 +57,7 @@
 #define INST_LEN 10
 #define INIT_COUNT 200
 
-#if 1
+#if true
 
 #define TDI 12
 #define TDO 15
@@ -66,10 +66,10 @@
 
 #else
 
-#define TDI 26
-#define TDO 29
-#define TCK 27
-#define TMS 28
+//#define TDI 26
+//#define TDO 29
+//#define TCK 27
+//#define TMS 28
 
 #endif
 
@@ -78,10 +78,10 @@ extern "C" {
 #endif
 int jtagInit(void);
 int jtagReload(void);
-int jtagWriteBuffer(unsigned int address, const uint8_t* data, size_t len);
+int jtagWriteBuffer(unsigned int address, uint8_t* data, size_t len);
 int jtagReadBuffer(unsigned int address, uint8_t* data, size_t len);
 void jtagDeinit(void);
-int mbPinSet(void);
+void mbPinSet(void);
 int mbCmdSend(uint32_t* data, int len);
 int mbEveSend(uint32_t* data, int len);
 int mbWrite(uint32_t address, void* data, int len);

@@ -138,9 +138,8 @@ static void DriveSignal(int signal, int data, int clk)
 static int ReadTDO(int bit_count, int data, int inst)
 {
   unsigned int record = 0;
-  unsigned int i;
 
-  for (i = 0; i < bit_count; i++)
+  for (int i = 0; i < bit_count; i++)
   {
     record = record | (port_pin_get_input_level(TDO) << i);
 
@@ -201,20 +200,17 @@ static int ReadTDO(int bit_count, int data, int inst)
 /******************************************************************/
 static void ReadTDOBuf(int bit_count, char *txbuf, char *rxbuf, int inst)
 {
-  unsigned int tdi = 0, tdo = 0, record = 0;
-  unsigned int i;
   unsigned int charbit = 0;
   unsigned char indata, outdata;
   indata = 0;
-  for (i = 0; i < bit_count; i++)
-  {
-    unsigned int mask = 1;
+  for (int i = 0; i < bit_count; i++) {
 
-    if (charbit == 0)
+    if (charbit == 0) {
       if (txbuf)
         outdata = *txbuf++;
       else
         outdata = -1;
+    }
 
     indata = (indata >> 1) | (port_pin_get_input_level (TDO) << 7);
 
@@ -223,7 +219,7 @@ static void ReadTDOBuf(int bit_count, char *txbuf, char *rxbuf, int inst)
                  !(i == (bit_count - 1) && inst)
                );
     outdata = outdata >> 1;
-    charbit = (charbit + 1) & 7;
+    charbit = (charbit + 1) & 7;  
     if (charbit == 0 && rxbuf)
     {
       *rxbuf++ = indata;
@@ -328,13 +324,13 @@ static int Js_Shiftdr()
 /*               with the TMS at HIGH.                            */
 /*                                                                */
 /******************************************************************/
-static void Js_Reset()
+/*static void Js_Reset()
 {
   int i;
 
   for (i = 0; i < JSM_RESET_COUNT; i++)
     AdvanceJSM(1);
-}
+}*/
 
 /******************************************************************/
 /* Name:         Runidle                                          */
@@ -383,7 +379,7 @@ static void Js_Runidle()
 /******************************************************************/
 static int LoadJI(int action)
 {
-  int i, record = 0, error = 0;
+  int record = 0, error = 0;
 
   /* Move Jtag State Machine (JSM) to RUN/IDLE */
   if (jtag.state != JS_RUNIDLE && jtag.state != JS_RESET)
@@ -432,7 +428,6 @@ static int LoadJI(int action)
 /******************************************************************/
 static void SetupChain(int action)
 {
-  int i, record = 0;
   /* Move Jtag State Machine (JSM) to RUN/IDLE */
   if (jtag.state != JS_RUNIDLE && jtag.state != JS_RESET)
     Js_Runidle();
@@ -444,7 +439,7 @@ static void SetupChain(int action)
   AdvanceJSM(0);
   AdvanceJSM(0);
 
-  record = ReadTDO(INST_LEN, action, 1);
+  ReadTDO(INST_LEN, action, 1);
 
   /* Move JSM to UPDATE_IR */
   AdvanceJSM(1);
@@ -605,7 +600,7 @@ int jtagReload() {
   return ret;
 }
 
-int jtagWriteBuffer(unsigned int address, const uint8_t *data, size_t len)
+int jtagWriteBuffer(unsigned int address, uint8_t *data, size_t len)
 {
   int ret = 0;
   ret = jtagVIR(JBC_WRITE);
@@ -615,8 +610,8 @@ int jtagWriteBuffer(unsigned int address, const uint8_t *data, size_t len)
   LoadJI(JI_USER0_VDR);
   Js_Shiftdr();
   address = (address << 2) | 0x00000003;
-  ReadTDOBuf(32, &address, 0, 0);
-  ReadTDOBuf(32 * len+2, data, 0, 0);
+  ReadTDOBuf(32, (void*)&address, 0, 0);
+  ReadTDOBuf(32 * len+2, (char*)data, 0, 0);
   return len;
 }
 
@@ -630,11 +625,11 @@ int jtagReadBuffer(unsigned int address, uint8_t *data, size_t len)
   LoadJI(JI_USER0_VDR);
   Js_Shiftdr();
   address = (address << 2) | 0x00000003;
-  ReadTDOBuf(32, &address, 0, 0);
+  ReadTDOBuf(32, (void*)&address, 0, 0);
   if (len > 1)
   {
     address = len - 1;
-    ReadTDOBuf(4, &address, 0, 1);
+    ReadTDOBuf(4, (void*)&address, 0, 1);
   }
   ret = jtagVIR(JBC_READ);
   if (ret < 0) {
@@ -645,7 +640,7 @@ int jtagReadBuffer(unsigned int address, uint8_t *data, size_t len)
   for (; len > 0; len--)
   {
     //*data++=ReadTDO(32,*data,0);
-    ReadTDOBuf(32, 0, data, 0);
+    ReadTDOBuf(32, 0, (char*)data, 0);
     data += 4;
   }
   return len;
@@ -657,12 +652,12 @@ int jtagReadBuffer(unsigned int address, uint8_t *data, size_t len)
 
 /**
  */
-int mbPinSet(void)
+void mbPinSet(void)
 {
 #ifdef MB_INT_PIN
   uint32_t rpc[1];
   rpc[0] = 0;
-  jtagWriteBuffer(MB_BASE, (const uint8_t *)rpc, 1);
+  jtagWriteBuffer(MB_BASE, (uint8_t *)rpc, 1);
   pinMode(MB_INT_PIN, OUTPUT);
   digitalWrite(MB_INT_PIN, LOW);
 #endif
@@ -670,10 +665,9 @@ int mbPinSet(void)
 
 int mbEveSend(uint32_t* data, int len)
 {
- long start;
  int ret;
 #ifdef MB_INT_PIN
- ret = jtagWriteBuffer(MB_BASE, (const uint8_t *)data, len);
+ ret = jtagWriteBuffer(MB_BASE, (uint8_t *)data, len);
  if (ret!=len) {
    return -10;
  }
@@ -694,7 +688,7 @@ int mbCmdSend(uint32_t* data, int len)
   long start;
   int ret;
 #ifdef MB_INT_PIN
-  ret = jtagWriteBuffer(MB_BASE, (const uint8_t *)data, len);
+  ret = jtagWriteBuffer(MB_BASE, (uint8_t *)data, len);
   if (ret!=len) {
     return -10;
   }
@@ -723,7 +717,7 @@ int mbCmdSend(uint32_t* data, int len)
  */
 int mbWrite(uint32_t address, void* data, int len)
 {
-  jtagWriteBuffer(MB_BASE + address, (const uint8_t *)data, len);
+  jtagWriteBuffer(MB_BASE + address, (uint8_t *)data, len);
   return 0;
 }
 
@@ -742,7 +736,7 @@ int mbRead(uint32_t address, void* data, int len)
 }
 
 void resetExternalChip() {
-  if (jtag.id != -1) {
+  if (jtag.id != (unsigned char)-1) {
     jtagReload();
   }
 }
