@@ -22,8 +22,8 @@
 	SOFTWARE.
 */
 
-#ifndef FPGA_CONTROLLER_H
-#define FPGA_CONTROLLER_H
+#ifndef FPGA_H
+#define FPGA_H
 
 #include "Arduino.h"
 
@@ -119,4 +119,4 @@ int32_t readJTAG(uint8_t readAddress);
 void    writeJTAG(uint8_t writeAddress, int32_t value);
 int32_t readWriteJTAG(uint8_t readAddress, uint8_t writeAddress, int32_t value);
 
-#endif // FPGA_CONTROLLER_H
+#endif // FPGA_H

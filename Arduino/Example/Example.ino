@@ -1,5 +1,5 @@
 
-#include "FPGA_Controller.h"
+#include "fpga.h"
 
 //
 // This is an example on how to use the JTAG_Interface: The file FPGA_Bitstream.h is

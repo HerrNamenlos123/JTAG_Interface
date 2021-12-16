@@ -22,7 +22,7 @@
 	SOFTWARE.
 */
 
-#include "FPGA_Controller.h"
+#include "fpga.h"
 
 #include <SPI.h>
 #include "jtag.h"
