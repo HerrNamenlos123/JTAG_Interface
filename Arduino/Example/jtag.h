@@ -57,35 +57,22 @@
 #define INST_LEN 10
 #define INIT_COUNT 200
 
-#if true
-
-#define TDI 12
-#define TDO 15
-#define TCK 13
-#define TMS 14
-
-#else
-
-//#define TDI 26
-//#define TDO 29
-//#define TCK 27
-//#define TMS 28
-
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 int jtagInit(void);
 int jtagReload(void);
-int jtagWriteBuffer(unsigned int address, uint8_t* data, size_t len);
-int jtagReadBuffer(unsigned int address, uint8_t* data, size_t len);
+int jtagWriteBuffer(uint32_t address, uint8_t *data, size_t len);
+int jtagReadBuffer(uint32_t address, uint8_t *data, size_t len);
 void jtagDeinit(void);
 void mbPinSet(void);
 int mbCmdSend(uint32_t* data, int len);
 int mbEveSend(uint32_t* data, int len);
 int mbWrite(uint32_t address, void* data, int len);
 int mbRead(uint32_t address, void* data, int len);
+
+void ReadTDOBuf(uint8_t bit_count, uint8_t *txbuf, uint8_t *rxbuf, bool instr);
+
 #ifdef __cplusplus
 }
 #endif

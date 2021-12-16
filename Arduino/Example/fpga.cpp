@@ -182,7 +182,10 @@ void walkJTAG(uint8_t numticks, uint16_t path)
 void writeDirectJTAG(uint16_t IR, uint8_t *data, uint32_t numbits)
 {
     walkJTAG(10, 0b0011011111);
-    jtag_host_pulse_tdio_instruction(10, (unsigned int)IR);
+
+    //jtag_host_pulse_tdio_instruction(10, (unsigned int)IR);
+    ReadTDOBuf(10, (uint8_t *)&IR, nullptr, true);      // TODO: Check if reading an odd number of bits works
+
     walkJTAG(5, 0b00111);
 
     int NumBytes = numbits >> 3;

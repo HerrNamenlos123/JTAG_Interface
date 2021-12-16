@@ -1,80 +1,100 @@
 #include "jtag.h"
 
+#define TDI 12
+#define TDO 15
+#define TCK 13
+#define TMS 14
+
 /* JTAG State Machine */
 const int JSM[16][2] = {
-  /*-State-      -mode= '0'-    -mode= '1'- */
-  /*RESET     */ {JS_RUNIDLE,   JS_RESET    },
-  /*RUNIDLE   */ {JS_RUNIDLE,   JS_SELECT_DR},
-  /*SELECTIR  */ {JS_CAPTURE_IR, JS_RESET    },
-  /*CAPTURE_IR*/ {JS_SHIFT_IR,  JS_EXIT1_IR },
-  /*SHIFT_IR  */ {JS_SHIFT_IR,  JS_EXIT1_IR },
-  /*EXIT1_IR  */ {JS_PAUSE_IR,  JS_UPDATE_IR},
-  /*PAUSE_IR  */ {JS_PAUSE_IR,  JS_EXIT2_IR },
-  /*EXIT2_IR  */ {JS_SHIFT_IR,  JS_UPDATE_IR},
-  /*UPDATE_IR */ {JS_RUNIDLE,   JS_SELECT_DR},
-  /*SELECT_DR */ {JS_CAPTURE_DR, JS_SELECT_IR},
-  /*CAPTURE_DR*/ {JS_SHIFT_DR,  JS_EXIT1_DR },
-  /*SHIFT_DR  */ {JS_SHIFT_DR,  JS_EXIT1_DR },
-  /*EXIT1_DR  */ {JS_PAUSE_DR,  JS_UPDATE_DR},
-  /*PAUSE_DR  */ {JS_PAUSE_DR,  JS_EXIT2_DR },
-  /*EXIT2_DR  */ {JS_SHIFT_DR,  JS_UPDATE_DR},
-  /*UPDATE_DR */ {JS_RUNIDLE,   JS_SELECT_DR}
-};
+    /*-State-      -mode= '0'-    -mode= '1'- */
+    /*RESET     */ {JS_RUNIDLE, JS_RESET},
+    /*RUNIDLE   */ {JS_RUNIDLE, JS_SELECT_DR},
+    /*SELECTIR  */ {JS_CAPTURE_IR, JS_RESET},
+    /*CAPTURE_IR*/ {JS_SHIFT_IR, JS_EXIT1_IR},
+    /*SHIFT_IR  */ {JS_SHIFT_IR, JS_EXIT1_IR},
+    /*EXIT1_IR  */ {JS_PAUSE_IR, JS_UPDATE_IR},
+    /*PAUSE_IR  */ {JS_PAUSE_IR, JS_EXIT2_IR},
+    /*EXIT2_IR  */ {JS_SHIFT_IR, JS_UPDATE_IR},
+    /*UPDATE_IR */ {JS_RUNIDLE, JS_SELECT_DR},
+    /*SELECT_DR */ {JS_CAPTURE_DR, JS_SELECT_IR},
+    /*CAPTURE_DR*/ {JS_SHIFT_DR, JS_EXIT1_DR},
+    /*SHIFT_DR  */ {JS_SHIFT_DR, JS_EXIT1_DR},
+    /*EXIT1_DR  */ {JS_PAUSE_DR, JS_UPDATE_DR},
+    /*PAUSE_DR  */ {JS_PAUSE_DR, JS_EXIT2_DR},
+    /*EXIT2_DR  */ {JS_SHIFT_DR, JS_UPDATE_DR},
+    /*UPDATE_DR */ {JS_RUNIDLE, JS_SELECT_DR}};
 
+#ifndef nullptr
+#define nullptr NULL
+#endif
 
-typedef struct {
-  unsigned char state;
-  unsigned char nSlaves;
-  unsigned char slaveBits;
-  unsigned char virSize;
-  unsigned char id;
-  unsigned char lastVir;
+typedef struct
+{
+    unsigned char state;
+    unsigned char nSlaves;
+    unsigned char slaveBits;
+    unsigned char virSize;
+    unsigned char id;
+    unsigned char lastVir;
 } states;
 
 static states jtag = {
-  .id = -1
-};
+    .id = -1};
 
 #if 1
 
-inline void outpin_init(int pin) { PORT->Group[0].DIRSET.reg = (1<<pin); }
-inline void outpin_on(int pin) { PORT->Group[0].OUTSET.reg = (1<<pin); }
-inline void outpin_off(int pin) { PORT->Group[0].OUTCLR.reg = (1<<pin); }
-
-inline void inpin_init(int pin) {
-	PORT->Group[0].PINCFG[pin].reg=(uint8_t)(PORT_PINCFG_INEN);
-	PORT->Group[0].DIRCLR.reg = (1<<pin);
+inline void outpin_init(int pin)
+{
+    PORT->Group[0].DIRSET.reg = (1 << pin);
 }
-inline int inpin_get(int pin) { return ((PORT->Group[0].IN.reg & (1<<pin)) != 0); }
+inline void outpin_on(int pin) { PORT->Group[0].OUTSET.reg = (1 << pin); }
+inline void outpin_off(int pin) { PORT->Group[0].OUTCLR.reg = (1 << pin); }
 
-void port_pin_set_output_level(int pin, int level) {
-  if (level) {
-    outpin_on(pin);
-  } else {
-    outpin_off(pin);
-  }
+inline void inpin_init(int pin)
+{
+    PORT->Group[0].PINCFG[pin].reg = (uint8_t)(PORT_PINCFG_INEN);
+    PORT->Group[0].DIRCLR.reg = (1 << pin);
+}
+inline int inpin_get(int pin) { return ((PORT->Group[0].IN.reg & (1 << pin)) != 0); }
+
+void port_pin_set_output_level(int pin, int level)
+{
+    if (level)
+    {
+        outpin_on(pin);
+    }
+    else
+    {
+        outpin_off(pin);
+    }
 }
 
-int port_pin_get_input_level(int pin) {
-  return inpin_get(pin);
+int port_pin_get_input_level(int pin)
+{
+    return inpin_get(pin);
 }
 
 #else
 
-void inpin_init(int pin) {
-  pinMode(pin, INPUT);
+void inpin_init(int pin)
+{
+    pinMode(pin, INPUT);
 }
 
-void outpin_init(int pin) {
-  pinMode(pin, OUTPUT);
+void outpin_init(int pin)
+{
+    pinMode(pin, OUTPUT);
 }
 
-void port_pin_set_output_level(int pin, int level) {
-  digitalWrite(pin, level ? HIGH : LOW);
+void port_pin_set_output_level(int pin, int level)
+{
+    digitalWrite(pin, level ? HIGH : LOW);
 }
 
-int port_pin_get_input_level(int pin) {
-  return digitalRead(pin);
+int port_pin_get_input_level(int pin)
+{
+    return digitalRead(pin);
 }
 
 #endif
@@ -103,15 +123,14 @@ int port_pin_get_input_level(int pin) {
 static void DriveSignal(int signal, int data, int clk)
 {
 
-  port_pin_set_output_level (signal, data);
+    port_pin_set_output_level(signal, data);
 
-  if (clk)
-  {
-    port_pin_set_output_level (TCK, 1);
-    port_pin_set_output_level (TCK, 0);
-  }
+    if (clk)
+    {
+        port_pin_set_output_level(TCK, 1);
+        port_pin_set_output_level(TCK, 0);
+    }
 }
-
 
 /******************************************************************/
 /* Name:         ReadTDO                                          */
@@ -137,52 +156,29 @@ static void DriveSignal(int signal, int data, int clk)
 
 static int ReadTDO(int bit_count, int data, int inst)
 {
-  unsigned int record = 0;
+    unsigned int record = 0;
 
-  for (int i = 0; i < bit_count; i++)
-  {
-    record = record | (port_pin_get_input_level(TDO) << i);
+    for (int i = 0; i < bit_count; i++)
+    {
+        record = record | (port_pin_get_input_level(TDO) << i);
 
-    DriveSignal(
-      TDI,
-      data & 1,
-      !(i == (bit_count - 1) && inst)
-    );
+        DriveSignal(
+            TDI,
+            data & 1,
+            !(i == (bit_count - 1) && inst));
 
-    data >>= 1;
-  }
-  return record;
-} /*
-  int ReadTDO(int bit_count,int data,int inst)
-  {
-	unsigned int tdi=0,tdo=0,record=0;
-	unsigned int i;
+        data >>= 1;
+    }
+    return record;
+}
 
-	for(i=0;i<bit_count;i++)
-	{
-		unsigned int mask=1;
-
-		tdo=port_pin_get_input_level (PIN_TDO);
-
-		tdo = tdo? (1<<i):0;
-		record = record | tdo;
-		mask = mask << i;
-		tdi = data & mask;
-		tdi = tdi >> i;
-		if (i==(bit_count-1) && inst)
-		  DriveSignal(PIN_TDI,tdi,0);
-		else
-		  DriveSignal(PIN_TDI,tdi,1);
-	}
-	return record;
-  }
-*/
 /******************************************************************/
-/* Name:         ReadTDO                                          */
+/* Name:         ReadTDOBuf                                       */
 /*                                                                */
-/* Parameters:   bit_count,data,inst                              */
+/* Parameters:   bit_count, txbuf, rxbuf, inst                    */
 /*               -bit_count is the number of bits to shift out.   */
-/*               -data is the value to shift in from lsb to msb.  */
+/*               -txbuf is the byte array to shift out.           */
+/*               -rxbuf is the byte array to shift into.          */
 /*               -inst determines if the data is an instruction.  */
 /*                if inst=1,the number of bits shifted in/out     */
 /*                equals to bit_count-1;if not,the number of bits */
@@ -195,37 +191,33 @@ static int ReadTDO(int bit_count, int data, int inst)
 /* Descriptions: Shift out bit_count bits from TDO while shift in */
 /*               data to TDI. During instruction loading, the     */
 /*               number of shifting equals to the instruction     */
-/*               length minus 1                                   */
+/*               length minus 1. Both txbuf and rxbuf can be      */
+/*               null, they are ignored in that case.             */
 /*                                                                */
 /******************************************************************/
-static void ReadTDOBuf(int bit_count, char *txbuf, char *rxbuf, int inst)
-{
-  unsigned int charbit = 0;
-  unsigned char indata, outdata;
-  indata = 0;
-  for (int i = 0; i < bit_count; i++) {
+void ReadTDOBuf(uint8_t bit_count, uint8_t *txbuf, uint8_t *rxbuf, bool instr) {
 
-    if (charbit == 0) {
-      if (txbuf)
-        outdata = *txbuf++;
-      else
-        outdata = -1;
+    uint16_t charbit = 0;
+    uint8_t indata = 0;
+    uint8_t outdata;
+
+    for (uint8_t i = 0; i < bit_count; i++) {
+
+        if (charbit == 0) {
+            outdata = (txbuf) ? (*txbuf++) : (-1);
+        }
+
+        indata = (indata >> 1) | (port_pin_get_input_level(TDO) << 7);
+
+        DriveSignal(TDI, outdata & 1, !(i == (bit_count - 1) && instr));
+
+        outdata >>= 1;
+        charbit = (charbit + 1) & 7;
+        if (charbit == 0 && rxbuf) {
+            *rxbuf++ = indata;
+            indata = 0;
+        }
     }
-
-    indata = (indata >> 1) | (port_pin_get_input_level (TDO) << 7);
-
-    DriveSignal( TDI,
-                 outdata & 1,
-                 !(i == (bit_count - 1) && inst)
-               );
-    outdata = outdata >> 1;
-    charbit = (charbit + 1) & 7;  
-    if (charbit == 0 && rxbuf)
-    {
-      *rxbuf++ = indata;
-      indata = 0;
-    }
-  }
 }
 
 /******************************************************************/
@@ -244,11 +236,11 @@ static void ReadTDOBuf(int bit_count, char *txbuf, char *rxbuf, int inst)
 /******************************************************************/
 static int AdvanceJSM(int mode)
 {
-  DriveSignal(TMS, mode, 1);
+    DriveSignal(TMS, mode, 1);
 
-  jtag.state = JSM[jtag.state][mode];
+    jtag.state = JSM[jtag.state][mode];
 
-  return (jtag.state);
+    return (jtag.state);
 }
 
 /******************************************************************/
@@ -265,14 +257,14 @@ static int AdvanceJSM(int mode)
 /******************************************************************/
 static int Js_Updatedr()
 {
-  /* The current JSM state must be in UPDATE_IR or UPDATE_DR */
-  if (jtag.state != JS_SHIFT_DR)
-    return (1);
+    /* The current JSM state must be in UPDATE_IR or UPDATE_DR */
+    if (jtag.state != JS_SHIFT_DR)
+        return (1);
 
-  AdvanceJSM(1);
-  AdvanceJSM(1);
+    AdvanceJSM(1);
+    AdvanceJSM(1);
 
-  return (0);
+    return (0);
 }
 
 /******************************************************************/
@@ -289,28 +281,28 @@ static int Js_Updatedr()
 /******************************************************************/
 static int Js_Shiftdr()
 {
-  /* The current JSM state must be in UPDATE_IR or UPDATE_DR */
-  if (jtag.state != JS_UPDATE_DR && jtag.state != JS_UPDATE_IR)
-  {
-    if (jtag.state != JS_RESET && jtag.state != JS_RUNIDLE)
-      return (1);
-    else
+    /* The current JSM state must be in UPDATE_IR or UPDATE_DR */
+    if (jtag.state != JS_UPDATE_DR && jtag.state != JS_UPDATE_IR)
     {
-      AdvanceJSM(0);
-      AdvanceJSM(0);
-      AdvanceJSM(1);
-      AdvanceJSM(0);
-      AdvanceJSM(0);
+        if (jtag.state != JS_RESET && jtag.state != JS_RUNIDLE)
+            return (1);
+        else
+        {
+            AdvanceJSM(0);
+            AdvanceJSM(0);
+            AdvanceJSM(1);
+            AdvanceJSM(0);
+            AdvanceJSM(0);
 
-      return (0);
+            return (0);
+        }
     }
-  }
 
-  AdvanceJSM(1);
-  AdvanceJSM(0);
-  AdvanceJSM(0);
+    AdvanceJSM(1);
+    AdvanceJSM(0);
+    AdvanceJSM(0);
 
-  return (0);
+    return (0);
 }
 
 /******************************************************************/
@@ -324,13 +316,13 @@ static int Js_Shiftdr()
 /*               with the TMS at HIGH.                            */
 /*                                                                */
 /******************************************************************/
-/*static void Js_Reset()
+static void Js_Reset()
 {
-  int i;
+    int i;
 
-  for (i = 0; i < JSM_RESET_COUNT; i++)
-    AdvanceJSM(1);
-}*/
+    for (i = 0; i < JSM_RESET_COUNT; i++)
+        AdvanceJSM(1);
+}
 
 /******************************************************************/
 /* Name:         Runidle                                          */
@@ -347,16 +339,16 @@ static int Js_Shiftdr()
 /******************************************************************/
 static void Js_Runidle()
 {
-  int i = 0;
+    int i = 0;
 
-  /* If the current state is not UPDATE_DR or UPDATE_IR, reset the JSM and move to RUN/IDLE */
-  if (jtag.state != JS_UPDATE_IR && jtag.state != JS_UPDATE_DR)
-  {
-    for (i = 0; i < JSM_RESET_COUNT; i++)
-      AdvanceJSM(1);
-  }
+    /* If the current state is not UPDATE_DR or UPDATE_IR, reset the JSM and move to RUN/IDLE */
+    if (jtag.state != JS_UPDATE_IR && jtag.state != JS_UPDATE_DR)
+    {
+        for (i = 0; i < JSM_RESET_COUNT; i++)
+            AdvanceJSM(1);
+    }
 
-  AdvanceJSM(0);
+    AdvanceJSM(0);
 }
 
 /******************************************************************/
@@ -379,32 +371,32 @@ static void Js_Runidle()
 /******************************************************************/
 static int LoadJI(int action)
 {
-  int record = 0, error = 0;
+    int record = 0, error = 0;
 
-  /* Move Jtag State Machine (JSM) to RUN/IDLE */
-  if (jtag.state != JS_RUNIDLE && jtag.state != JS_RESET)
-    Js_Runidle();
+    /* Move Jtag State Machine (JSM) to RUN/IDLE */
+    if (jtag.state != JS_RUNIDLE && jtag.state != JS_RESET)
+        Js_Runidle();
 
-  /* Move JSM to SHIFT_IR */
-  AdvanceJSM(0);
-  AdvanceJSM(1);
-  AdvanceJSM(1);
-  AdvanceJSM(0);
-  AdvanceJSM(0);
+    /* Move JSM to SHIFT_IR */
+    AdvanceJSM(0);
+    AdvanceJSM(1);
+    AdvanceJSM(1);
+    AdvanceJSM(0);
+    AdvanceJSM(0);
 
-  record = ReadTDO(INST_LEN, action, 1);
-  if (record != 0x155)
-  {
-    error = -1;
-    //			fprintf(stderr,"Error: JTAG chain broken!\nError: Bits unloaded: 0x%X\n", record);
+    record = ReadTDO(INST_LEN, action, 1);
+    if (record != 0x155)
+    {
+        error = -1;
+        //			fprintf(stderr,"Error: JTAG chain broken!\nError: Bits unloaded: 0x%X\n", record);
+        return error;
+    }
+
+    /* Move JSM to UPDATE_IR */
+    AdvanceJSM(1);
+    AdvanceJSM(1);
+
     return error;
-  }
-
-  /* Move JSM to UPDATE_IR */
-  AdvanceJSM(1);
-  AdvanceJSM(1);
-
-  return error;
 }
 
 /******************************************************************/
@@ -428,24 +420,23 @@ static int LoadJI(int action)
 /******************************************************************/
 static void SetupChain(int action)
 {
-  /* Move Jtag State Machine (JSM) to RUN/IDLE */
-  if (jtag.state != JS_RUNIDLE && jtag.state != JS_RESET)
-    Js_Runidle();
+    /* Move Jtag State Machine (JSM) to RUN/IDLE */
+    if (jtag.state != JS_RUNIDLE && jtag.state != JS_RESET)
+        Js_Runidle();
 
-  /* Move JSM to SHIFT_IR */
-  AdvanceJSM(0);
-  AdvanceJSM(1);
-  AdvanceJSM(1);
-  AdvanceJSM(0);
-  AdvanceJSM(0);
+    /* Move JSM to SHIFT_IR */
+    AdvanceJSM(0);
+    AdvanceJSM(1);
+    AdvanceJSM(1);
+    AdvanceJSM(0);
+    AdvanceJSM(0);
 
-  ReadTDO(INST_LEN, action, 1);
+    ReadTDO(INST_LEN, action, 1);
 
-  /* Move JSM to UPDATE_IR */
-  AdvanceJSM(1);
-  AdvanceJSM(1);
+    /* Move JSM to UPDATE_IR */
+    AdvanceJSM(1);
+    AdvanceJSM(1);
 }
-
 
 /******************************************************************/
 /* Name:         CheckStatus                                      */
@@ -470,273 +461,282 @@ static void SetupChain(int action)
 /******************************************************************/
 int CheckStatus()
 {
-	int bit,data=0,error=0;
-	int jseq_max=0,jseq_conf_done=0,conf_done_bit=0;
+    int bit, data = 0, error = 0;
+    int jseq_max = 0, jseq_conf_done = 0, conf_done_bit = 0;
 
-	//	fprintf( stdout, "Info: Checking Status\n" );
+    //	fprintf( stdout, "Info: Checking Status\n" );
 
-	/* Load CHECK_STATUS instruction */
-	SetupChain(JI_CHECK_STATUS);
+    /* Load CHECK_STATUS instruction */
+    SetupChain(JI_CHECK_STATUS);
 
-	Js_Shiftdr();
+    Js_Shiftdr();
 
-	/* Maximum JTAG sequence of the device in chain */
-	jseq_max= JSEQ_MAX;
+    /* Maximum JTAG sequence of the device in chain */
+    jseq_max = JSEQ_MAX;
 
-	jseq_conf_done= JSEQ_CONF_DONE;
+    jseq_conf_done = JSEQ_CONF_DONE;
 
-	conf_done_bit = ((jseq_max-jseq_conf_done)*3)+1;
+    conf_done_bit = ((jseq_max - jseq_conf_done) * 3) + 1;
 
-	/* Compensate for 1 bit unloaded from every Bypass register */
-	conf_done_bit+= 0;
+    /* Compensate for 1 bit unloaded from every Bypass register */
+    conf_done_bit += 0;
 
-	for(bit=0;bit<conf_done_bit;bit++)
-	{
-		DriveSignal(TDI,0,1);
-	}
+    for (bit = 0; bit < conf_done_bit; bit++)
+    {
+        DriveSignal(TDI, 0, 1);
+    }
 
-	data = ReadTDO(1,0,0);
+    data = ReadTDO(1, 0, 0);
 
-	if(!data)
-	{
-		error++;
-	}
+    if (!data)
+    {
+        error++;
+    }
 
-	/* Move JSM to RUNIDLE */
-	Js_Updatedr();
-	Js_Runidle();
+    /* Move JSM to RUNIDLE */
+    Js_Updatedr();
+    Js_Runidle();
 
-	return (error);
+    return (error);
 }
 
 static int jtagVIR(int instruction)
 {
-  int ret = 0;
-  if (jtag.lastVir != instruction) {
-    int code = ((jtag.id + 1) << jtag.virSize) | instruction;
-    ret = LoadJI(JI_USER1_VIR);
-    if (ret < 0) {
-		return ret;
-	}
-    Js_Shiftdr();
-    ReadTDO(jtag.virSize + jtag.slaveBits, code, 1);
-    Js_Updatedr();
-    jtag.lastVir = instruction;
-  }
-  return ret;
+    int ret = 0;
+    if (jtag.lastVir != instruction)
+    {
+        int code = ((jtag.id + 1) << jtag.virSize) | instruction;
+        ret = LoadJI(JI_USER1_VIR);
+        if (ret < 0)
+        {
+            return ret;
+        }
+        Js_Shiftdr();
+        ReadTDO(jtag.virSize + jtag.slaveBits, code, 1);
+        Js_Updatedr();
+        jtag.lastVir = instruction;
+    }
+    return ret;
 }
 
 int jtagInit(void)
 {
-  int i, j;
-  unsigned int record;
+    int i, j;
+    unsigned int record;
 
-  inpin_init(TDO);
-  outpin_init(TMS);
-  outpin_init(TCK);
-  outpin_init(TDI);
+    inpin_init(TDO);
+    outpin_init(TMS);
+    outpin_init(TCK);
+    outpin_init(TDI);
 
-  port_pin_set_output_level (TMS, 1);
-  port_pin_set_output_level (TDI, 1);
-  port_pin_set_output_level (TCK, 0);
+    port_pin_set_output_level(TMS, 1);
+    port_pin_set_output_level(TDI, 1);
+    port_pin_set_output_level(TCK, 0);
 
-  Js_Runidle();
-  if (CheckStatus()==0)
-  {
-    LoadJI(JI_USER1_VIR);
-    Js_Shiftdr();
-    ReadTDO(64, 0, 0);
-    Js_Updatedr();
-    LoadJI(JI_USER0_VDR);
-    record = 0;
-    for (i = 0; i < 8; i++)
+    Js_Runidle();
+    if (CheckStatus() == 0)
     {
-      Js_Shiftdr();
-      record = (record >> 4) | (ReadTDO(4, 0x0, 0) << 28);
-      Js_Updatedr();
-      Js_Runidle();
-    }
-    jtag.id = -1;
-    jtag.lastVir = -1;
-    if (((record >> 8) & 0x7ff) == JTAG_VENDOR_ID)
-    {
-      jtag.nSlaves = (record >> 19) & 0xff; // number of jtag slaves
-      for (jtag.slaveBits = 0; (1 << jtag.slaveBits) < (jtag.nSlaves + 1); jtag.slaveBits++);
-
-      jtag.virSize = record & 0xff;
-      for (j = 0; j < jtag.nSlaves; j++)
-      {
+        LoadJI(JI_USER1_VIR);
+        Js_Shiftdr();
+        ReadTDO(64, 0, 0);
+        Js_Updatedr();
+        LoadJI(JI_USER0_VDR);
         record = 0;
         for (i = 0; i < 8; i++)
         {
-          Js_Shiftdr();
-          record = (record >> 4) | (ReadTDO(4, 0x0, 0) << 28);
-          Js_Updatedr();
-          Js_Runidle();
+            Js_Shiftdr();
+            record = (record >> 4) | (ReadTDO(4, 0x0, 0) << 28);
+            Js_Updatedr();
+            Js_Runidle();
         }
-        if (((record >> 19) & 0xff) == JTAG_ID_VJTAG && ((record >> 8) & 0x7ff) == JTAG_VENDOR_ID)
+        jtag.id = -1;
+        jtag.lastVir = -1;
+        if (((record >> 8) & 0x7ff) == JTAG_VENDOR_ID)
         {
-          jtag.id = j;
-          return 0;
+            jtag.nSlaves = (record >> 19) & 0xff; // number of jtag slaves
+            for (jtag.slaveBits = 0; (1 << jtag.slaveBits) < (jtag.nSlaves + 1); jtag.slaveBits++)
+                ;
+
+            jtag.virSize = record & 0xff;
+            for (j = 0; j < jtag.nSlaves; j++)
+            {
+                record = 0;
+                for (i = 0; i < 8; i++)
+                {
+                    Js_Shiftdr();
+                    record = (record >> 4) | (ReadTDO(4, 0x0, 0) << 28);
+                    Js_Updatedr();
+                    Js_Runidle();
+                }
+                if (((record >> 19) & 0xff) == JTAG_ID_VJTAG && ((record >> 8) & 0x7ff) == JTAG_VENDOR_ID)
+                {
+                    jtag.id = j;
+                    return 0;
+                }
+            }
         }
-      }
     }
-  }
-  return -1;
+    return -1;
 }
 
 void jtagDeinit(void)
 {
-  jtag.id = -1;
-  pinMode(TDO, INPUT);
-  pinMode(TMS, INPUT);
-  pinMode(TDI, INPUT);
-  pinMode(TCK, INPUT);
+    jtag.id = -1;
+    pinMode(TDO, INPUT);
+    pinMode(TMS, INPUT);
+    pinMode(TDI, INPUT);
+    pinMode(TCK, INPUT);
 }
 
-int jtagReload() {
-  int ret = LoadJI(JI_PULSE_NCONFIG);
-  Js_Shiftdr();
-  return ret;
-}
-
-int jtagWriteBuffer(unsigned int address, uint8_t *data, size_t len)
+int jtagReload()
 {
-  int ret = 0;
-  ret = jtagVIR(JBC_WRITE);
-  if (ret < 0) {
-	return ret;
-  }
-  LoadJI(JI_USER0_VDR);
-  Js_Shiftdr();
-  address = (address << 2) | 0x00000003;
-  ReadTDOBuf(32, (void*)&address, 0, 0);
-  ReadTDOBuf(32 * len+2, (char*)data, 0, 0);
-  return len;
+    int ret = LoadJI(JI_PULSE_NCONFIG);
+    Js_Shiftdr();
+    return ret;
 }
 
-int jtagReadBuffer(unsigned int address, uint8_t *data, size_t len)
-{
-  int ret = 0;
-  ret = jtagVIR(JBC_WRITE);
-  if (ret < 0) {
-	return ret;
-  }
-  LoadJI(JI_USER0_VDR);
-  Js_Shiftdr();
-  address = (address << 2) | 0x00000003;
-  ReadTDOBuf(32, (void*)&address, 0, 0);
-  if (len > 1)
-  {
-    address = len - 1;
-    ReadTDOBuf(4, (void*)&address, 0, 1);
-  }
-  ret = jtagVIR(JBC_READ);
-  if (ret < 0) {
-	return ret;
-  }
-  LoadJI(JI_USER0_VDR);
-  Js_Shiftdr();
-  for (; len > 0; len--)
-  {
-    //*data++=ReadTDO(32,*data,0);
-    ReadTDOBuf(32, 0, (char*)data, 0);
-    data += 4;
-  }
-  return len;
+int jtagWriteBuffer(uint32_t address, uint8_t *data, size_t len) {
+
+    int ret = jtagVIR(JBC_WRITE);
+    if (ret < 0) {
+        return ret;
+    }
+
+    LoadJI(JI_USER0_VDR);
+    Js_Shiftdr();
+    address = (address << 2) | 0b0011;
+    ReadTDOBuf(32, (uint8_t *)&address, 0, 0);
+    ReadTDOBuf(32 * len + 2, (uint8_t *)data, 0, 0);
+    return len;
 }
 
-#define MB_BASE     0x00000000
-#define MB_INT_PIN  31
-#define MB_TIMEOUT  5000
+int jtagReadBuffer(uint32_t address, uint8_t *data, size_t len) {
+
+    int ret = jtagVIR(JBC_WRITE);
+    if (ret < 0) {
+        return ret;
+    }
+
+    LoadJI(JI_USER0_VDR);
+    Js_Shiftdr();
+    address = (address << 2) | 0b0011;
+    ReadTDOBuf(32, (uint8_t *)&address, 0, 0);
+    if (len > 1) {
+        address = len - 1;
+        ReadTDOBuf(4, (uint8_t *)&address, nullptr, 1);
+    }
+    ret = jtagVIR(JBC_READ);
+    if (ret < 0) {
+        return ret;
+    }
+    LoadJI(JI_USER0_VDR);
+    Js_Shiftdr();
+    for (; len > 0; len--) {
+        //*data++=ReadTDO(32,*data,0);
+        ReadTDOBuf(32, 0, (uint8_t *)data, 0);
+        data += 4;
+    }
+    return len;
+}
+
+#define MB_BASE 0x00000000
+#define MB_INT_PIN 31
+#define MB_TIMEOUT 5000
 
 /**
  */
 void mbPinSet(void)
 {
 #ifdef MB_INT_PIN
-  uint32_t rpc[1];
-  rpc[0] = 0;
-  jtagWriteBuffer(MB_BASE, (uint8_t *)rpc, 1);
-  pinMode(MB_INT_PIN, OUTPUT);
-  digitalWrite(MB_INT_PIN, LOW);
+    uint32_t rpc[1];
+    rpc[0] = 0;
+    jtagWriteBuffer(MB_BASE, (uint8_t *)rpc, 1);
+    pinMode(MB_INT_PIN, OUTPUT);
+    digitalWrite(MB_INT_PIN, LOW);
 #endif
 }
 
-int mbEveSend(uint32_t* data, int len)
+int mbEveSend(uint32_t *data, int len)
 {
- int ret;
+    int ret;
 #ifdef MB_INT_PIN
- ret = jtagWriteBuffer(MB_BASE, (uint8_t *)data, len);
- if (ret!=len) {
-   return -10;
- }
- digitalWrite(MB_INT_PIN, HIGH);
- digitalWrite(MB_INT_PIN, LOW);
+    ret = jtagWriteBuffer(MB_BASE, (uint8_t *)data, len);
+    if (ret != len)
+    {
+        return -10;
+    }
+    digitalWrite(MB_INT_PIN, HIGH);
+    digitalWrite(MB_INT_PIN, LOW);
 #else
- jtagWriteBuffer(MB_BASE + 1, (const uint8_t *)(&data[1]), len-1);
- jtagWriteBuffer(MB_BASE, (const uint8_t *)data, 1);
+    jtagWriteBuffer(MB_BASE + 1, (const uint8_t *)(&data[1]), len - 1);
+    jtagWriteBuffer(MB_BASE, (const uint8_t *)data, 1);
 #endif
- return 0;
+    return 0;
 }
 
 /**
  * Sends len words (32 bit) via messagebox
  */
-int mbCmdSend(uint32_t* data, int len)
+int mbCmdSend(uint32_t *data, int len)
 {
-  long start;
-  int ret;
+    long start;
+    int ret;
 #ifdef MB_INT_PIN
-  ret = jtagWriteBuffer(MB_BASE, (uint8_t *)data, len);
-  if (ret!=len) {
-    return -10;
-  }
-  digitalWrite(MB_INT_PIN, HIGH);
-  digitalWrite(MB_INT_PIN, LOW);
+    ret = jtagWriteBuffer(MB_BASE, (uint8_t *)data, len);
+    if (ret != len)
+    {
+        return -10;
+    }
+    digitalWrite(MB_INT_PIN, HIGH);
+    digitalWrite(MB_INT_PIN, LOW);
 #else
-  jtagWriteBuffer(MB_BASE + 1, (const uint8_t *)(&data[1]), len-1);
-  jtagWriteBuffer(MB_BASE, (const uint8_t *)data, 1);
+    jtagWriteBuffer(MB_BASE + 1, (const uint8_t *)(&data[1]), len - 1);
+    jtagWriteBuffer(MB_BASE, (const uint8_t *)data, 1);
 #endif
 
-  start = millis();
-  do {
-    jtagReadBuffer(MB_BASE, (uint8_t*)&ret, 1);
-    if ((millis() - start) > MB_TIMEOUT) {
-      return -1;
-    }
-  } while (ret);
+    start = millis();
+    do
+    {
+        jtagReadBuffer(MB_BASE, (uint8_t *)&ret, 1);
+        if ((millis() - start) > MB_TIMEOUT)
+        {
+            return -1;
+        }
+    } while (ret);
 
-  jtagReadBuffer(MB_BASE + 1, (uint8_t*)&ret, 1);
+    jtagReadBuffer(MB_BASE + 1, (uint8_t *)&ret, 1);
 
-  return ret;
+    return ret;
 }
 
 /**
  * Writes len words (32 bit) via messagebox at a specified address
  */
-int mbWrite(uint32_t address, void* data, int len)
+int mbWrite(uint32_t address, void *data, int len)
 {
-  jtagWriteBuffer(MB_BASE + address, (uint8_t *)data, len);
-  return 0;
+    jtagWriteBuffer(MB_BASE + address, (uint8_t *)data, len);
+    return 0;
 }
 
 /**
  * Reads len words (32 bit) using messagebox from a specified address
  */
-int mbRead(uint32_t address, void* data, int len)
+int mbRead(uint32_t address, void *data, int len)
 {
-  uint32_t *p = (uint32_t*)data;
-  int i;
+    uint32_t *p = (uint32_t *)data;
+    int i;
 
-  for (i=0; i<len; i++) {
-    jtagReadBuffer(MB_BASE + address + i, (uint8_t*)&p[i], 1);
-  }
-  return 0;
+    for (i = 0; i < len; i++)
+    {
+        jtagReadBuffer(MB_BASE + address + i, (uint8_t *)&p[i], 1);
+    }
+    return 0;
 }
 
-void resetExternalChip() {
-  if (jtag.id != (unsigned char)-1) {
-    jtagReload();
-  }
+void resetExternalChip()
+{
+    if (jtag.id != (unsigned char)-1)
+    {
+        jtagReload();
+    }
 }
