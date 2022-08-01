@@ -1,0 +1,2 @@
+FPGA        KEYWORD1
+begin       KEYWORD2
