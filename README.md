@@ -15,6 +15,8 @@
 
 [Webpage for JTAG_Interface](https://herrnamenlos123.github.io/JTAG_Interface/)
 
+Version is 21.1.1.850
+
 ## Disclaimer
 
 This piece of software is open source and you can use it for anything you like. You can download, modify and even publish projects using it, but whenever publishing a project that uses parts or at least code snippets of this repository, you need to give me credit somewhere.
