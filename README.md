@@ -1,3 +1,5 @@
+
+![logo](assets/logo.svg)
 # JTAG_Interface
 
 ## Content
@@ -13,11 +15,7 @@
 
 [Webpage for JTAG_Interface](https://herrnamenlos123.github.io/JTAG_Interface/)
 
-## Test
-
-```c++
-
-```
+Version is 21.1.1.850
 
 ## Disclaimer
 
@@ -39,7 +37,7 @@ Okay, it's actually not THAT exciting, but the heart of this project is a few Qu
 
 Here you can see the main module for Intel Quartus:
 
-![JTAG_Interface module](https://github.com/HerrNamenlos123/JTAG_Interface/blob/master/images/interface.png)
+![JTAG_Interface module](assets/interface.png)
 
 This module simply needs a clock, I would recommend the 120 MHz clock `wCLK120`. Besides that, only the software on the MCU must be running correctly, then everything should work. Whenever your program calls a writeJTAG or readJTAG or readWriteJTAG function, the value currently on the left side of the module from the corresponding index is read and the given value is written into memory and will stay on the right side of the module until it is overwritten.
 
@@ -63,7 +61,7 @@ For information on how to use it I think it's best to just look at the example `
 
 Here you can see the example file, which is `FPGA code/projects/JTAG_Interface/MyDesign.bdf`.
 
-![JTAG_Interface example usage](https://github.com/HerrNamenlos123/JTAG_Interface/blob/master/images/example.png)
+![JTAG_Interface example usage](assets/example.png)
 
 If you want to start creating your own designs, open `MKRVIDOR4000_top.v`. This is where everything is based on and from here you can route any signals to your own designs, like it is done with `MyDesign.bdf`.
 

@@ -1,8 +1,8 @@
 @echo off
 
 :: %~dp0 is the directory where this .bat file is located
-set sourcePath="%~dp0FPGA\projects\JTAG_Interface\output_files\MKRVIDOR4000.ttf"
-set targetPath="%~dp0Arduino\Example\fpga_bitstream.h"
+set sourcePath="%~dp0FPGA-code\projects\JTAG_Interface\output_files\MKRVIDOR4000.ttf"
+set targetPath="%~dp0Arduino-code\FPGA_Tester\FPGA_Bitstream.h"
 set reverseBytePath="%~dp0"
 
 if not exist %sourcePath% ( 
