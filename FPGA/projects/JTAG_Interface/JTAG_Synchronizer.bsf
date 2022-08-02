@@ -1,0 +1,120 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 64 64 280 224)
+	(text "JTAG_Synchronizer" (rect 5 0 120 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 139 24 156)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "iMAIN_CLK" (rect 0 0 66 19)(font "Intel Clear" (font_size 8)))
+		(text "iMAIN_CLK" (rect 24 24 90 43)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "iTCK" (rect 0 0 28 19)(font "Intel Clear" (font_size 8)))
+		(text "iTCK" (rect 24 40 52 59)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "iTDI" (rect 0 0 24 19)(font "Intel Clear" (font_size 8)))
+		(text "iTDI" (rect 24 56 48 75)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "iSTATE_SDR" (rect 0 0 76 19)(font "Intel Clear" (font_size 8)))
+		(text "iSTATE_SDR" (rect 24 72 100 91)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "iSTATE_CDR" (rect 0 0 76 19)(font "Intel Clear" (font_size 8)))
+		(text "iSTATE_CDR" (rect 24 88 100 107)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "iSTATE_UDR" (rect 0 0 77 19)(font "Intel Clear" (font_size 8)))
+		(text "iSTATE_UDR" (rect 24 104 101 123)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 216 112)
+		(input)
+		(text "iTDO" (rect 0 0 30 19)(font "Intel Clear" (font_size 8)))
+		(text "iTDO" (rect 161 104 191 123)(font "Intel Clear" (font_size 8)))
+		(line (pt 200 112)(pt 216 112))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "oTCK" (rect 0 0 31 19)(font "Intel Clear" (font_size 8)))
+		(text "oTCK" (rect 160 24 191 43)(font "Intel Clear" (font_size 8)))
+		(line (pt 216 32)(pt 200 32))
+	)
+	(port
+		(pt 216 48)
+		(output)
+		(text "oTDI" (rect 0 0 28 19)(font "Intel Clear" (font_size 8)))
+		(text "oTDI" (rect 160 40 188 59)(font "Intel Clear" (font_size 8)))
+		(line (pt 216 48)(pt 200 48))
+	)
+	(port
+		(pt 216 64)
+		(output)
+		(text "oSTATE_SDR" (rect 0 0 80 19)(font "Intel Clear" (font_size 8)))
+		(text "oSTATE_SDR" (rect 120 56 200 75)(font "Intel Clear" (font_size 8)))
+		(line (pt 216 64)(pt 200 64))
+	)
+	(port
+		(pt 216 80)
+		(output)
+		(text "oSTATE_CDR" (rect 0 0 80 19)(font "Intel Clear" (font_size 8)))
+		(text "oSTATE_CDR" (rect 120 72 200 91)(font "Intel Clear" (font_size 8)))
+		(line (pt 216 80)(pt 200 80))
+	)
+	(port
+		(pt 216 96)
+		(output)
+		(text "oSTATE_UDR" (rect 0 0 81 19)(font "Intel Clear" (font_size 8)))
+		(text "oSTATE_UDR" (rect 120 88 201 107)(font "Intel Clear" (font_size 8)))
+		(line (pt 216 96)(pt 200 96))
+	)
+	(port
+		(pt 0 128)
+		(output)
+		(text "oTDO" (rect 0 0 34 19)(font "Intel Clear" (font_size 8)))
+		(text "oTDO" (rect 24 120 58 139)(font "Intel Clear" (font_size 8)))
+		(line (pt 16 128)(pt 0 128))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 144))
+	)
+)

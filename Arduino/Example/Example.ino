@@ -1,5 +1,5 @@
 
-#include "FPGA_Controller.h"
+#include "fpga.h"
 
 //
 // This is an example on how to use the JTAG_Interface: The file FPGA_Bitstream.h is
@@ -25,6 +25,60 @@
 // into the FPGA_Controller folder of the library, which will overwrite the default bitstream.
 // 
 
+void penetrationTest() {
+	uint32_t inputBuffer[15];
+	uint32_t outputBuffer[15];
+
+	for (int i = 0; i < 15; i++) {
+		uint32_t value = rand();
+		inputBuffer[i] = value;
+		writeJTAG(i, value);
+		outputBuffer[i] = readJTAG(i);
+	}
+
+	uint32_t sleep = 0;
+	uint64_t iteration = 0;
+	while (true) {
+		uint32_t value = rand();
+		uint32_t address = rand() % 15;
+
+		inputBuffer[address] = value;
+		writeJTAG(address, value);
+		outputBuffer[address] = readJTAG(address);
+
+		Serial.print("Iteration #");
+		Serial.print((int)iteration++);
+		Serial.print(": Port ");
+		Serial.print(address);
+		Serial.print(" was set to ");
+		Serial.println(value);
+
+		for (int i = 0; i < 15; i++) {
+			if (inputBuffer[i] != outputBuffer[i]) {
+				Serial.println("BUFFER IS INCORRECT (after transaction): ");
+				Serial.println("inputBuffer: ");
+				for (int i = 0; i < 15; i++) {
+					Serial.print("[");
+					Serial.print(i);
+					Serial.print("] = ");
+					Serial.println(inputBuffer[i]);
+				}
+				Serial.println("\noutputBuffer: ");
+				for (int i = 0; i < 15; i++) {
+					Serial.print("[");
+					Serial.print(i);
+					Serial.print("] = ");
+					Serial.println(outputBuffer[i]);
+				}
+				Serial.println("Aborting test...");
+				while (true);
+			}
+		}
+
+		delay(sleep);
+	}
+}
+
 void setup() {
 
 	Serial.begin(115200); // Serial.begin() should be called before uploadBitstream
@@ -41,6 +95,8 @@ void setup() {
 	// on the CPU as well may kill your Arduino permanently
 
 	initJTAG();
+
+	penetrationTest();
 }
 
 void loop() {
