@@ -2,6 +2,8 @@
 ![logo](assets/logo.svg)
 # JTAG_Interface
 
+To generate the symbol files, open the new Verilog file, then go to `File -> Create/Update -> Create Symbol files for current file`.
+
 ## Content
 [What is the JTAG_Interface?](#what-is-the-jtag_interface)
 
