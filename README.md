@@ -1,86 +1,106 @@
 
-![logo](assets/logo.svg)
-# JTAG_Interface
+<img src="assets/logo.svg" alt="JTAG_Interface logo" class="center">
 
-To generate the symbol files, open the new Verilog file, then go to `File -> Create/Update -> Create Symbol files for current file`.
+<h2 align="center">All you will ever need for FPGA development</h2>
+<hr>
 
-## Content
-[What is the JTAG_Interface?](#what-is-the-jtag_interface)
+This Arduino library takes care of uploading your custom FPGA bitstream, as well as communicating with your FPGA program at runtime.
 
-[How do I install it?](#how-do-i-install-it)
+<a href="https://www.buymeacoffee.com/herrnamenlos123" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+</a>
 
-[How do I use it?](#how-do-i-use-it)
-
-[How it works internally](#how-it-works-internally)
-
-[Something's not working...](#somethings-not-working)
-
-[Webpage for JTAG_Interface](https://herrnamenlos123.github.io/JTAG_Interface/)
-
-Version is 21.1.1.850
-
-## Disclaimer
-
-This piece of software is open source and you can use it for anything you like. You can download, modify and even publish projects using it, but whenever publishing a project that uses parts or at least code snippets of this repository, you need to give me credit somewhere.
-
-Credit also goes to @riccardo_giacomazzi aka [Giako68](https://github.com/Giako68), who not only helped me in the Arduino forum, but also published a Vidor 4000 FPGA project which also uses JTAG. This project partially inspired my JTAG_Interface and parts of it are based on his TiledScreen application:
-https://github.com/Giako68/TiledScreen
-
-This project is written with the intention to be useful to as many people as possible and I do not feel responsible for any damages that might occur to your device. 
-
-
-## What is the JTAG_Interface?
+## What is the JTAG Interface ❓
 
 The JTAG_Interface is a project to help any new developer using the Arduino MKR Vidor 4000 to establish a communication between the CPU and the FPGA. When using a default library like VidorGraphics or VidorPeripherals the FPGA magically reacts to any command you give it in the Arduino IDE. But as soon as you start to create your own bitstreams using Intel Quartus, you will quickly realize that there is no obvious way to exchange data or commands between the CPU and the FPGA anymore.
 
 Well, this has changed now! May I introduce: The JTAG_Interface!
 
-Okay, it's actually not THAT exciting, but the heart of this project is a few Quartus modules for your custom bitstream and a few C++ files you can include in your Arduino program. This not only cares about communication via JTAG, but it also cares for you about uploading the bitstream to the FPGA, so this could be seen as a general template for custom FPGA bitstreams.
+<table align="right">
+    <thead>
+        <tr>
+            <th>Default module:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <img src="assets/interface.png" alt="JTAG_Interface module">
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-Here you can see the main module for Intel Quartus:
+The module `jtag_interface` is the base module, but since it is not so easy to work with, the `jtag_interface3`, `jtag_interface7`, `jtag_interface15` and `jtag_interface31` are available to make it easier. The number indicates the number of registers. If you are wondering, these numbers were chosen because the are the most memory efficient for a given case. 
 
-![JTAG_Interface module](assets/interface.png)
+Such a module only needs a clock (120 MHz `wCLK120`). Input registers on the left can be read from and output registers on the right can be written to. For any more information take a look at the example `simple`.
 
-This module simply needs a clock, I would recommend the 120 MHz clock `wCLK120`. Besides that, only the software on the MCU must be running correctly, then everything should work. Whenever your program calls a writeJTAG or readJTAG or readWriteJTAG function, the value currently on the left side of the module from the corresponding index is read and the given value is written into memory and will stay on the right side of the module until it is overwritten.
+## How do I install it? 💾
 
-## How do I install it?
+Installing is now easier than ever, it is part of the official Arduino library manager! Just open the Arduino IDE, go to the library manager and search for `JTAG Interface`. You know the rest.
 
-The JTAG Interface is pretty easy to install. Just download the zip file containing the code and unzip it. To use it directly, go to the folder `Arduino code/libraries/`, copy the folder `FPGA_Controller` and paste it into the libraries folder in your Sketchbook (Your sketchbook location is by default `C:/Users/<USERNAME>/Documents/Arduino`). The library is now installed! To get a first test running all you need to do is to open the file `Arduino code/FPGA_Tester/FPGA_Tester.ino` from the repository with the Arduino IDE and upload it. Now everything should be working!
+## Developing custom FPGA bistreams 🔨
 
-If you now want to go further, you can open the Intel Quartus project `FPGA code/projects/JTAG_Interface/MKRVIDOR4000.qpf` with Intel Quartus (obviously :P) and compile it. When compilation was successful, you need to bit-reverse the output file (`FPGA code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf`). For that, refer to my reply i posted to this topic:
+When the example compiles and runs successfully, it is time to create your own bitstream.
 
-https://forum.arduino.cc/index.php?topic=700223.msg4710460#msg4710460
+This library folder also contains the example Intel Quartus project, so if you don't have one already you can open this one by navigating to your libraries folder. Your libraries location is by default `C:/Users/<USERNAME>/Documents/Arduino/libraries`).
 
-Once you successfully reversed the bitstream, simply rename it to `FPGA_Bitstream.h` if the output of the script was something different and paste it into your previously pasted `libraries/FPGA_Controller` directory in your sketchbook. That will overwrite the default bitstream of this project and your own custom bitstream will be uploaded next time.
-
-Make sure to use the script i posted in the linked forum post above, which will make it very easy for you to regenerate the bitstream automatically. 
-
-Now upload the example again and see if everything is still working. If yes, you can now finally start editing the Quartus project and your Arduino files to do something amazing!
-
-## How do I use it?
-
-For information on how to use it I think it's best to just look at the example `Arduino code/FPGA_Tester/FPGA_Tester.ino` and the Quartus project. You can either keep modifying the project or you can copy and paste all JTAG relevant modules into your own, already existing project.
-
-Here you can see the example file, which is `FPGA code/projects/JTAG_Interface/MyDesign.bdf`.
+Here you can see the example file: `FPGA/projects/example_simple/MyDesign.bdf`. You can continue development here or in `MKRVIDOR4000_top.v`.
 
 ![JTAG_Interface example usage](assets/example.png)
 
-If you want to start creating your own designs, open `MKRVIDOR4000_top.v`. This is where everything is based on and from here you can route any signals to your own designs, like it is done with `MyDesign.bdf`.
+You can set the bit width of all registers as a parameter of the module. Unfortunately this cannot be done with the number of registers, so there are different versions for you to choose from. If you need even more registers than are available, just copy `jtag_interface31.v`. You will quickly see the pattern, just continue it for as many registers as you need.
 
-Well, there's not much more to say, try playing around and if you're having trouble with anything just [go to the trouble section](#somethings-not-working).
+After that you still need symbol files, for that go to `File -> Create/Update -> Create Symbol files for current file`. Now you should see your module when you double-click empty space.
 
+Now try compiling it by hitting the blue play button. When successful, the bitstream now needs to be converted, for this check out my ByteReverser project. It is a very small and fast utility, which installs itself in less than a second!
 
-## How it works internally
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <a href=https://github.com/HerrNamenlos123/bytereverse>
+                    <img src="https://gh-card.dev/repos/HerrNamenlos123/bytereverse.svg?fullname=" alt="HerrNamenlos123/   bytereverse - GitHub">
+                </a>
+            </td>
+            <td>
+                <a href=https://github.com/HerrNamenlos123/bytereverse>
+                    <img src="assets/bytereverse.png" alt="HerrNamenlos123/   bytereverse - GitHub">
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-I won't write the explanation here, but if you still want to know more precisely how it works, take a look at the file `Arduino code/libraries/FPGA_Controller/FPGA_Controller.h` where it is explained in quite some detail.
+Create a profile that takes in the `output_files/MKRVIDOR4000.ttf` of your Quartus project and set the output to the `FPGA_Bitstream.h` in this libraries' `src` folder. You must overwrite the original one.
 
-## Something's not working...
+Well, there's not much more to say, just try playing around. If something is not working and you need help, refer to the next section.
 
-In case something isn't working as expected or you're having trouble getting JTAG to work or you need help modifying the project to fit your needs, don't hesitate to contact me at:  
-<HerrNamenlos123@gmail.com>
+## Something's not working... 💩
+
+In case something isn't working as expected or you need help in your project, don't hesitate to contact me at:  
+<herrnamenlos123@gmail.com>
 
 Don't be shy, just write something like `Hey, i can't get my project to work...` and I would be glad to be helpful.
 
-Also, in case you find a bug or want to request a feature or anything similar, please go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) of the repository and create an issue.
+Also, in case you find a bug or want to request a feature or anything similar, you can go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) and create one.
 
 Now as that's out of the way, let's get coding and create something amazing!
+
+## Final notes 📃
+
+This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the releases.
+
+## Supporting 💪
+
+I did all of this like most of my other projects in my free time and I do not get any money for that. I just like what I do, do it for myself and want to share it so that others can benefit too.
+
+Exactly for this reason would it be even more amazing if you could buy me a coffee :)
+
+<a href="https://www.buymeacoffee.com/herrnamenlos123" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+</a>
+
+## Thank you 🙏
+
+Here I just wanted to say thank you to everyone who is using this library and keeps it alive.
