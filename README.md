@@ -1,5 +1,5 @@
 
-<img src="assets/logo.svg" alt="JTAG_Interface logo" class="center">
+<img src="assets/logo.svg" alt="JTAG_Interface logo" class="center" style="max-height: 200px">
 
 <h2 align="center">All you will ever need for FPGA development</h2>
 <hr>
