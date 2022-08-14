@@ -1,8 +1,15 @@
 
-<img src="assets/logo.svg" alt="JTAG_Interface logo" class="center" style="max-height: 200px">
+<img src="assets/logo.svg" alt="JTAG_Interface logo" class="center" id="logo">
+<style>
+    #logo {  
+        width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; 
+    } 
+</style>
 
 <h2 align="center">All you will ever need for FPGA development</h2>
-<hr>
 
 This Arduino library takes care of uploading your custom FPGA bitstream, as well as communicating with your FPGA program at runtime.
 
