@@ -38,13 +38,14 @@ module jtag_interface16 #(
 	output [WIDTH-1:0] oDATA_F
 );
 
-wire [15:0][WIDTH-1:0] iDATA;
-wire [15:0][WIDTH-1:0] oDATA;
+localparam NUMBER_OF_REGISTERS = 16;
+wire [NUMBER_OF_REGISTERS-1:0][WIDTH-1:0] iDATA;
+wire [NUMBER_OF_REGISTERS-1:0][WIDTH-1:0] oDATA;
 
 jtag_interface #(
 
 	.REGISTER_SIZE(WIDTH),
-	.NUMBER_OF_REGISTERS(16)
+	.NUMBER_OF_REGISTERS(NUMBER_OF_REGISTERS)
 	
 ) jtag_inst (
 

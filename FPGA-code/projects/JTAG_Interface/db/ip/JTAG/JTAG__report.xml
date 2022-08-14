@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2021.12.03.09:26:50"
- outputDirectory="F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/db/ip/JTAG/">
+ date="2022.08.14.19:35:31"
+ outputDirectory="F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/db/ip/JTAG/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -92,29 +92,29 @@
  </perimeter>
  <entity
    path=""
-   parameterizationKey="JTAG:1.0:AUTO_DEVICE=10CL016YU256C8G,AUTO_DEVICE_FAMILY=Cyclone 10 LP,AUTO_DEVICE_SPEEDGRADE=8,AUTO_GENERATION_ID=1638520007,AUTO_UNIQUE_ID=(altera_virtual_jtag:20.1:CREATE_PRIMITIVE_JTAG_STATE_SIGNAL_PORTS=false,device_family=Cyclone 10 LP,gui_use_auto_index=true,sld_auto_instance_index=YES,sld_instance_index=0,sld_ir_width=10)"
+   parameterizationKey="JTAG:1.0:AUTO_DEVICE=10CL016YU256C8G,AUTO_DEVICE_FAMILY=Cyclone 10 LP,AUTO_DEVICE_SPEEDGRADE=8,AUTO_GENERATION_ID=1660498528,AUTO_UNIQUE_ID=(altera_virtual_jtag:21.1:CREATE_PRIMITIVE_JTAG_STATE_SIGNAL_PORTS=false,device_family=Cyclone 10 LP,gui_use_auto_index=true,sld_auto_instance_index=YES,sld_instance_index=0,sld_ir_width=10)"
    instancePathKey="JTAG"
    kind="JTAG"
    version="1.0"
    name="JTAG">
-  <parameter name="AUTO_GENERATION_ID" value="1638520007" />
+  <parameter name="AUTO_GENERATION_ID" value="1660498528" />
   <parameter name="AUTO_DEVICE" value="10CL016YU256C8G" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone 10 LP" />
   <parameter name="AUTO_UNIQUE_ID" value="" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <generatedFiles>
    <file
-       path="F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/db/ip/JTAG/JTAG.v"
+       path="F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/db/ip/JTAG/JTAG.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
   <sourceFiles>
    <file
-       path="F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/JTAG.qsys" />
+       path="F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/JTAG.qsys" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="C:/intelfpga_lite/20.1/ip/altera/sld/jtag/altera_virtual_jtag/altera_virtual_jtag_hw.tcl" />
+       path="C:/intelfpga_lite/21.1/ip/altera/sld/jtag/altera_virtual_jtag/altera_virtual_jtag_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Debug" culprit="JTAG">queue size: 0 starting:JTAG "JTAG"</message>
@@ -137,10 +137,10 @@
  </entity>
  <entity
    path="submodules/"
-   parameterizationKey="altera_virtual_jtag:20.1:CREATE_PRIMITIVE_JTAG_STATE_SIGNAL_PORTS=false,device_family=Cyclone 10 LP,gui_use_auto_index=true,sld_auto_instance_index=YES,sld_instance_index=0,sld_ir_width=10"
+   parameterizationKey="altera_virtual_jtag:21.1:CREATE_PRIMITIVE_JTAG_STATE_SIGNAL_PORTS=false,device_family=Cyclone 10 LP,gui_use_auto_index=true,sld_auto_instance_index=YES,sld_instance_index=0,sld_ir_width=10"
    instancePathKey="JTAG:.:virtual_jtag_0"
    kind="altera_virtual_jtag"
-   version="20.1"
+   version="21.1"
    name="sld_virtual_jtag">
   <parameter name="sld_auto_instance_index" value="YES" />
   <parameter name="sld_instance_index" value="0" />
@@ -152,7 +152,7 @@
   <childGeneratedFiles/>
   <sourceFiles>
    <file
-       path="C:/intelfpga_lite/20.1/ip/altera/sld/jtag/altera_virtual_jtag/altera_virtual_jtag_hw.tcl" />
+       path="C:/intelfpga_lite/21.1/ip/altera/sld/jtag/altera_virtual_jtag/altera_virtual_jtag_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="JTAG" as="virtual_jtag_0" />

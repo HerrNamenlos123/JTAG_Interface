@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EnsembleReport name="JTAG" kind="system" version="20.1" fabric="QSYS">
- <!-- Format version 20.1 711 (Future versions may contain additional information.) -->
- <!-- 2021.12.03.09:26:50 -->
+<EnsembleReport name="JTAG" kind="system" version="21.1" fabric="QSYS">
+ <!-- Format version 21.1 850 (Future versions may contain additional information.) -->
+ <!-- 2022.08.14.19:35:31 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1638520007</value>
+  <value>1660498528</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -150,7 +150,7 @@
  <module
    name="virtual_jtag_0"
    kind="altera_virtual_jtag"
-   version="20.1"
+   version="21.1"
    path="virtual_jtag_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
@@ -219,7 +219,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="jtag" kind="conduit_end" version="20.1">
+  <interface name="jtag" kind="conduit_end" version="21.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -330,7 +330,7 @@ parameters are a RESULT of the module parameters. -->
     <role>virtual_state_uir</role>
    </port>
   </interface>
-  <interface name="tck" kind="clock_source" version="20.1">
+  <interface name="tck" kind="clock_source" version="21.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -406,7 +406,7 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>Altera Virtual JTAG</displayName>
-  <version>20.1</version>
+  <version>21.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -414,7 +414,7 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Conduit</displayName>
-  <version>20.1</version>
+  <version>21.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -422,8 +422,8 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Output</displayName>
-  <version>20.1</version>
+  <version>21.1</version>
  </plugin>
- <reportVersion>20.1 711</reportVersion>
- <uniqueIdentifier>28D244226A490000017D7F67358E</uniqueIdentifier>
+ <reportVersion>21.1 850</reportVersion>
+ <uniqueIdentifier>00090FFE0001000001829D6CD3F2</uniqueIdentifier>
 </EnsembleReport>

@@ -1,8 +1,8 @@
 --lpm_constant LPM_CVALUE=00000000 LPM_WIDTH=32 result
---VERSION_BEGIN 20.1 cbx_lpm_constant 2020:06:05:12:04:51:SJ cbx_mgl 2020:06:05:12:11:10:SJ  VERSION_END
+--VERSION_BEGIN 21.1 cbx_lpm_constant 2022:06:23:22:03:40:SJ cbx_mgl 2022:06:23:22:04:21:SJ  VERSION_END
 
 
--- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Copyright (C) 2022  Intel Corporation. All rights reserved.
 --  Your use of Intel Corporation's design tools, logic functions 
 --  and other software and tools, and any partner logic 
 --  functions, and any output files from any of the foregoing 

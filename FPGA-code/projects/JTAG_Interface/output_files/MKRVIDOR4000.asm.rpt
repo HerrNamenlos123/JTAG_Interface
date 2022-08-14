@@ -1,6 +1,6 @@
 Assembler report for MKRVIDOR4000
-Fri Dec 03 09:27:40 2021
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Sun Aug 14 19:36:30 2022
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
 ---------------------
@@ -11,12 +11,12 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof
-  7. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jam
-  8. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jbc
-  9. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.pof
- 10. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf
- 11. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.rbf
+  6. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof
+  7. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jam
+  8. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jbc
+  9. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.pof
+ 10. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf
+ 11. Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.rbf
  12. Assembler Messages
 
 
@@ -24,7 +24,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2022  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -44,7 +44,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Dec 03 09:27:40 2021 ;
+; Assembler Status      ; Successful - Sun Aug 14 19:36:30 2022 ;
 ; Revision Name         ; MKRVIDOR4000                          ;
 ; Top-level Entity Name ; MKRVIDOR4000_top                      ;
 ; Family                ; Cyclone 10 LP                         ;
@@ -69,76 +69,76 @@ https://fpgasoftware.intel.com/eula.
 +--------+------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                            ;
-+----------------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                            ;
-+----------------------------------------------------------------------------------------------------------------------+
-; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof ;
-; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jam ;
-; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jbc ;
-; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.pof ;
-; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf ;
-; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.rbf ;
-+----------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                      ;
++--------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                      ;
++--------------------------------------------------------------------------------------------------------------------------------+
+; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof ;
+; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jam ;
+; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jbc ;
+; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.pof ;
+; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf ;
+; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.rbf ;
++--------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof ;
-+----------------+-------------------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                                       ;
-+----------------+-------------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x000F9AF1                                                                                                                    ;
-; Checksum       ; 0x000F9AF1                                                                                                                    ;
-+----------------+-------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                 ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x0010B085                                                                                                                              ;
+; Checksum       ; 0x0010B085                                                                                                                              ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jam ;
-+-------------------------+----------------------------------------------------------------------------------------------------------------------+
-; Option                  ; Setting                                                                                                              ;
-+-------------------------+----------------------------------------------------------------------------------------------------------------------+
-; JEDEC STAPL ASCII file  ;                                                                                                                      ;
-+-------------------------+----------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jam ;
++-------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+; Option                  ; Setting                                                                                                                        ;
++-------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+; JEDEC STAPL ASCII file  ;                                                                                                                                ;
++-------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jbc ;
-+-----------------------+------------------------------------------------------------------------------------------------------------------------+
-; Option                ; Setting                                                                                                                ;
-+-----------------------+------------------------------------------------------------------------------------------------------------------------+
-; STAPL Byte Code file  ;                                                                                                                        ;
-+-----------------------+------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.jbc ;
++-----------------------+----------------------------------------------------------------------------------------------------------------------------------+
+; Option                ; Setting                                                                                                                          ;
++-----------------------+----------------------------------------------------------------------------------------------------------------------------------+
+; STAPL Byte Code file  ;                                                                                                                                  ;
++-----------------------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.pof ;
-+--------------------+---------------------------------------------------------------------------------------------------------------------------+
-; Option             ; Setting                                                                                                                   ;
-+--------------------+---------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode      ; 0x00000000                                                                                                                ;
-; Checksum           ; 0x1DC5FCD6                                                                                                                ;
-; Compression Ratio  ; 3                                                                                                                         ;
-+--------------------+---------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.pof ;
++--------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Option             ; Setting                                                                                                                             ;
++--------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode      ; 0x00000000                                                                                                                          ;
+; Checksum           ; 0x1DC4079A                                                                                                                          ;
+; Compression Ratio  ; 3                                                                                                                                   ;
++--------------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf ;
-+--------------------+---------------------------------------------------------------------------------------------------------------------------+
-; Option             ; Setting                                                                                                                   ;
-+--------------------+---------------------------------------------------------------------------------------------------------------------------+
-; Tabular Text File  ;                                                                                                                           ;
-+--------------------+---------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.ttf ;
++--------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Option             ; Setting                                                                                                                             ;
++--------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Tabular Text File  ;                                                                                                                                     ;
++--------------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.rbf ;
-+---------------------+--------------------------------------------------------------------------------------------------------------------------+
-; Option              ; Setting                                                                                                                  ;
-+---------------------+--------------------------------------------------------------------------------------------------------------------------+
-; Raw Binary File     ;                                                                                                                          ;
-;  Compression Ratio  ; 3                                                                                                                        ;
-+---------------------+--------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.rbf ;
++---------------------+------------------------------------------------------------------------------------------------------------------------------------+
+; Option              ; Setting                                                                                                                            ;
++---------------------+------------------------------------------------------------------------------------------------------------------------------------+
+; Raw Binary File     ;                                                                                                                                    ;
+;  Compression Ratio  ; 3                                                                                                                                  ;
++---------------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -146,19 +146,19 @@ https://fpgasoftware.intel.com/eula.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Dec 03 09:27:36 2021
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+    Info: Processing started: Sun Aug 14 19:36:25 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off MKRVIDOR4000 -c MKRVIDOR4000
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info (210117): Created JAM or JBC file for the specified chain: 
-Device 1 (10CL016YU256; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof)
+Device 1 (10CL016YU256; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof)
 Info (210117): Created JAM or JBC file for the specified chain: 
-Device 1 (10CL016YU256; F:/Users/Florian/Documents/Sketchbook/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof)
+Device 1 (10CL016YU256; F:/Users/Florian/Documents/Sketchbook/libraries/JTAG_Interface/FPGA-code/projects/JTAG_Interface/output_files/MKRVIDOR4000.sof)
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4685 megabytes
-    Info: Processing ended: Fri Dec 03 09:27:40 2021
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 4712 megabytes
+    Info: Processing ended: Sun Aug 14 19:36:31 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 

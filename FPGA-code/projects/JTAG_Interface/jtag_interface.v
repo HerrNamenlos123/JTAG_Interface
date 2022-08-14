@@ -1,7 +1,7 @@
 
 module jtag_interface #(
-	parameter NUMBER_OF_REGISTERS = 16,
-	parameter REGISTER_SIZE = 32
+	parameter REGISTER_SIZE,
+	parameter NUMBER_OF_REGISTERS
 ) (
 	input iMAIN_CLK,
 	input [NUMBER_OF_REGISTERS-1:0][REGISTER_SIZE-1:0] iDATA,
@@ -64,8 +64,8 @@ jtag_synchronizer jtag_sync(
 
 jtag_memory #(
 
-	.NUMBER_OF_REGISTERS(NUMBER_OF_REGISTERS),
-	.REGISTER_SIZE(REGISTER_SIZE)
+	.REGISTER_SIZE(REGISTER_SIZE),
+	.NUMBER_OF_REGISTERS(NUMBER_OF_REGISTERS)
 
 ) memory (
 	

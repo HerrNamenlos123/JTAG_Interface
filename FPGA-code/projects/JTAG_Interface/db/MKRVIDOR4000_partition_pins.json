@@ -4,23 +4,31 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "bMKR_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "bMKR_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "bMKR_A[2]",
+					"strict" : false
+				},
+				{
 					"name" : "bMKR_D[0]",
 					"strict" : false
 				},
 				{
-					"name" : "bMKR_D[1]",
+					"name" : "bMKR_D[6]",
 					"strict" : false
 				},
 				{
-					"name" : "bMKR_D[2]",
+					"name" : "bMKR_D[7]",
 					"strict" : false
 				},
 				{
-					"name" : "bMKR_D[3]",
-					"strict" : false
-				},
-				{
-					"name" : "bMKR_D[4]",
+					"name" : "bMKR_D[8]",
 					"strict" : false
 				},
 				{
