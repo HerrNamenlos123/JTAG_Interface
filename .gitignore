@@ -1,0 +1,42 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Intel Quartus files
+*.bak
+*.ipregen.rpt
+*.qws
+FPGA/projects/**/db
+FPGA/projects/**/greybox_tmp
+FPGA/projects/**/incremental_db
+FPGA/projects/**/output_files/*
+!FPGA/projects/**/output_files/MKRVIDOR4000.ttf
