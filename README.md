@@ -12,7 +12,7 @@ This Arduino library takes care of uploading your custom FPGA bitstream, as well
 
 ## What is the JTAG Interface ❓
 
-The JTAG_Interface is a project to help any new developer using the Arduino MKR Vidor 4000 to establish a communication between the CPU and the FPGA. When using a default library like VidorGraphics or VidorPeripherals the FPGA magically reacts to any command you give it in the Arduino IDE. But as soon as you start to create your own bitstreams using Intel Quartus, you will quickly realize that there is no obvious way to exchange data or commands between the CPU and the FPGA anymore.
+The JTAG_Interface is a project to help any new developer using the Arduino MKR Vidor 4000 to establish a communication between the CPU and the FPGA. When using a default library like `VidorGraphics` or `VidorPeripherals` the FPGA magically reacts to any command you give it in the Arduino IDE. But as soon as you start to create your own bitstreams using Intel Quartus, you will quickly realize that there is no obvious way to exchange data or commands between the CPU and the FPGA anymore.
 
 Well, this has changed now! May I introduce: The JTAG_Interface!
 
@@ -31,7 +31,7 @@ Well, this has changed now! May I introduce: The JTAG_Interface!
     </tbody>
 </table>
 
-The module `jtag_interface` is the base module, but since it is not so easy to work with, the `jtag_interface3`, `jtag_interface7`, `jtag_interface15` and `jtag_interface31` are available to make it easier. The number indicates the number of registers. If you are wondering, these numbers were chosen because the are the most memory efficient for a given case. 
+The module `jtag_interface` is the base module, but since it is not so easy to work with, there are versions with 3, 7, 15 and 31 I/O registers. If you are wondering, these numbers were chosen because the are the most memory efficient for a given case, any other number wastes address space.
 
 Such a module only needs a clock (120 MHz `wCLK120`). Input registers on the left can be read from and output registers on the right can be written to. For any more information take a look at the example `simple`.
 

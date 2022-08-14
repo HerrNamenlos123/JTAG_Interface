@@ -35,6 +35,10 @@
 #ifndef FPGA_H
 #define FPGA_H
 
+#ifndef ARDUINO_SAMD_MKRVIDOR4000
+  	#error “This library is exclusively for the Arduino MKR Vidor 4000.”
+#endif
+
 #include "Arduino.h"
 
 struct _ModuleInfo {
