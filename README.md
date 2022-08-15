@@ -95,7 +95,7 @@ This library was tested with Intel Quartus lite 21.1.1.850. If you need the old 
 
 I did all of this like most of my other projects in my free time and I do not get any money for that. I just like what I do, do it for myself and want to share it so that others can benefit too.
 
-Exactly for this reason would it be even more amazing if you could buy me a coffee :)
+Exactly for this reason would it be even more amazing if you could find the motivation to buy me a coffee :)
 
 <a href="https://www.buymeacoffee.com/herrnamenlos123" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
