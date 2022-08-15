@@ -53,7 +53,7 @@ You can set the bit width of all registers as a parameter of the module. Unfortu
 
 After that you still need symbol files, for that go to `File -> Create/Update -> Create Symbol files for current file`. Now you should see your module when you double-click empty space.
 
-Now try compiling it by hitting the blue play button. When successful, the bitstream now needs to be converted, for this check out my ByteReverser project. It is a very small and fast utility, which installs itself in less than a second!
+Now try compiling it by hitting the blue play button. When successful, the bitstream now needs to be converted, for this check out my ByteReverser project. It is a very small and fast utility, designed to keep your code flowing!
 
 <table>
     <tbody>
