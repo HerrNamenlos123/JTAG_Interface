@@ -74,22 +74,11 @@ Now try compiling it by hitting the blue play button. When successful, the bitst
 
 Create a profile that takes in the `output_files/MKRVIDOR4000.ttf` of your Quartus project and set the output to the `FPGA_Bitstream.h` in this libraries' `src` folder. You must overwrite the original one.
 
-Well, there's not much more to say, just try playing around. If something is not working and you need help, refer to the next section.
+Well, there's not much more to say, just try playing around. If something is not working and you need help, refer to the last section.
 
-## Something's not working... 💩
+## Who is using this?🎓
 
-In case something isn't working as expected or you need help in your project, don't hesitate to contact me at:  
-<herrnamenlos123@gmail.com>
-
-Don't be shy, just write something like `Hey, i can't get my project to work...` and I would be glad to be helpful.
-
-Also, in case you find a bug or want to request a feature or anything similar, you can go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) and create one.
-
-Now as that's out of the way, let's get coding and create something amazing!
-
-## Final notes 📃
-
-This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the releases.
+This library is already successfully being used at a well-known university, but I want to get permission before I mention the name here. So keep an eye on this chapter in the close future :)
 
 ## Supporting 💪
 
@@ -101,6 +90,14 @@ Exactly for this reason would it be even more amazing if you could find the moti
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
 </a>
 
-## Thank you 🙏
+## Final notes 📃
 
-Here I just wanted to say thank you to everyone who is using this library and keeps it alive.
+This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the releases.
+
+## Something's not working... 💩
+
+In case something isn't working as expected or you need help in your project, don't hesitate to contact me at: <herrnamenlos123@gmail.com>. No need to be shy :)
+
+Additionally, in case you find a bug or want to request a feature or similar, you can go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) and create one.
+
+Now as that's out of the way, let's get coding and create something amazing!
