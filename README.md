@@ -61,6 +61,8 @@ After that you still need symbol files, for that go to `File -> Create/Update ->
 
 Now try compiling it by hitting the blue play button. When successful, the bitstream now needs to be converted, for this check out my ByteReverser project. It is a very small and fast utility, designed to keep your code flowing!
 
+[https://github.com/HerrNamenlos123/bytereverse](https://github.com/HerrNamenlos123/bytereverse)
+
 <table>
     <tbody>
         <tr>
