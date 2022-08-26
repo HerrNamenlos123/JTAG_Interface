@@ -43,7 +43,7 @@ Installing is now easier than ever, it is part of the official Arduino library m
 
 The file [FPGA/projects/example_simple/jtag_memory.v](FPGA/projects/example_simple/jtag_memory.v) is the core of everything. Please read this file if you are interested in how it works, it is the central place for documentation.
 
-For now, only one JTAG_Interface can be instanced in one FPGA program. (Only the first one is chosen for transaction). In the future, it might be possible to use multiple instances and reference them using their ID. Let me know if you would be interested in this feature!
+For now, only one JTAG_Interface can be instanced in one FPGA program. (Only the first one is chosen for transaction). In the future it might be possible to use multiple instances and reference them using their ID, please let me know if you would be interested in this feature!
 
 ## Developing custom FPGA bistreams 🔨
 
