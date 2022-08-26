@@ -9,6 +9,10 @@
 //   main module (jtag_interface.v) and map the 2-dimensional arrays to a fixed number of registers, so that they can
 //   be used graphically in block design files.
 //
+// Parameters: 
+//  REGISTER_SIZE		 -> bit width of each register
+// 	NUMBER_OF_REGISTERS  -> number of usable registers (+1 for the ID)
+//
 // This entire protocol works like a shift register. The Altera Virtual JTAG instance provides us with an 
 //   address register, a data out pin and three control signals. These are synchronized with the main clock to prevent
 //   undefined behaviour and are then fed into this memory block. 
@@ -21,13 +25,7 @@
 //   by the address. This means you don't need to care about signals changing during transmission. Basically an 
 //   instantaneous snapshot is taken before transmitting.
 //
-// Parameters: 
-//  REGISTER_SIZE		 -> bit width of each register
-// 	NUMBER_OF_REGISTERS  -> number of usable registers (+1 for the ID)
-//
-// For a transaction, JTAG must write the address into the JTAG virtual instruction register and then
-//   write the data into the virtual data register. When either the write or read index is -1 (all ones),
-//   nothing is written and/or 0 is shifted out. When both write and read indices are -1 at the same time, 
+// When both write and read indices are -1 at the same time, 
 //   a 16-bit identifier value is shifted out, containing the register width (high byte) 
 //   and the number of usable registers (low byte). It is used in the Arduino program at startup to check
 //   for bit width mismatches, preventing configuration mistakes.
