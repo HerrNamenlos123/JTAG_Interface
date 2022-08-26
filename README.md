@@ -41,9 +41,9 @@ Installing is now easier than ever, it is part of the official Arduino library m
 
 ## How does it work? 💡
 
-The file [FPGA/projects/example_simple/jtag_memory.v](FPGA/projects/example_simple/jtag_memory.v) is the core of everything, while all other modules are wrapped around it. If you want to know how everything works, read this file. At the top there is a description of the internal workings and below it is the actual implementation.
+The file [FPGA/projects/example_simple/jtag_memory.v](FPGA/projects/example_simple/jtag_memory.v) is the core of everything. Please read this file if you are interested in how it works, it is the central place for documentation.
 
-As a short version, this protocol works like a shift register. The Altera Virtual JTAG instance is set up (which allows you to write either to an address register or a value register). Then when a transmission starts, an address is transmitted, whose bit width depends on your configuration, but it always contains the read index and the write index. After all those bits, the actual data is transmitted bit by bit, which basically shifts your write data in and shifts the read data back out to you. After the transmission is complete, the data you just wrote is latched to the corresponding output, so that it remains there and the entire output register updates in an instant. The same is for the input register, which is captured once when transmission starts. No need to care about signal changes while a transmission is happening. Reading and writing can happen at the same time, which makes it very efficient. When either index is the reserved one (-1), no corresponding action is done. When both reading and writing indices are -1, a 16-bit identifier is returned which tells your MCU how many registers there are so that initialization can fail until the configuration matches. This prevents bit width mismatches. 
+For now, only one JTAG_Interface can be instanced in one FPGA program. (Only the first one is chosen for transaction). In the future, it might be possible to use multiple instances and reference them using their ID. Let me know if you would be interested in this feature!
 
 ## Developing custom FPGA bistreams 🔨
 
