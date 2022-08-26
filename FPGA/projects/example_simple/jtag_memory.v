@@ -1,4 +1,25 @@
-
+//
+// jtag_interface.v is the main module if you want to go barebones. jtag_interfaceXX.v is to make it easier for you.
+//   All other jtag_... files are internal and not to be used manually. If you want to copy this into your own project,
+//   simply copy/paste all files starting with jtag_... . That's it.
+//
+// This module is completely configurable with parameters (register bit width & number of registers) and has input/output
+//   registers as 2-dimensional arrays. This can be used in Verilog, but is not supported in block design files. This is
+//   why jtag_interface7.v, jtag_interface15.v, jtag_interface31.v, ... exist. They basically just wrap the original
+//   main module (jtag_interface.v) and map the 2-dimensional arrays to a fixed number of registers, so that they can
+//   be used graphically in block design files.
+//
+// This entire protocol works like a shift register. The Altera Virtual JTAG instance provides us with an 
+//   address register, a data out pin and three control signals. These are synchronized with the main clock to prevent
+//   undefined behaviour and are then fed into this memory block. 
+//
+// When transaction starts, first the address is shifted bit-by-bit into the Altera Virtual address register 
+//   (not handled by us). This has a fixed bit-width, defined by the parameters provided to this FPGA module.
+//   Now the data from the reading index (which in contained in the address like described below) is latched so that
+//   it cannot change during transmission. Now the data is shifted in and out at the same time. Out from the latched input
+//   and IN to the temporary register. When it's done the temporary register is latched to the corresponding output specified
+//   by the address. This means you don't need to care about signals changing during transmission. Basically an 
+//   instantaneous snapshot is taken before transmitting.
 //
 // Parameters: 
 //  REGISTER_SIZE		 -> bit width of each register
@@ -6,18 +27,18 @@
 //
 // For a transaction, JTAG must write the address into the JTAG virtual instruction register and then
 //   write the data into the virtual data register. When either the write or read index is -1 (all ones),
-//   nothing is written and 0 is shifted out. When both write and read indices are -1, the configuration
-//   identifier with a fixed with of 16 bits is shifted out, containing the register width (high byte) 
-//   and the number of usable registers (low byte). It is used in the Arduino program at startup to check, 
-//   if the right instance matches on the MCU and FPGA.
+//   nothing is written and/or 0 is shifted out. When both write and read indices are -1 at the same time, 
+//   a 16-bit identifier value is shifted out, containing the register width (high byte) 
+//   and the number of usable registers (low byte). It is used in the Arduino program at startup to check
+//   for bit width mismatches, preventing configuration mistakes.
 //
 // The address in the instruction register contains both the write and read index. Its width depends on the
 //   configuration. The total number of registers is used -> usable registers + 1.
 //
-//   addressWidth = ceil(log2(NUMBER_OF_REGISTERS + 1))
+//   addressWidth = ceil(log2(TOTAL_NUMBER_OF_REGISTERS + 1))
 // 
 // Example used for demonstration below: 
-//   NUMBER_OF_REGISTERS = 16 -> addressWidth = 5
+//   NUMBER_OF_USABLE_REGISTERS = 16       ->      addressWidth = 5
 //
 //   In this example the address would be 11 bits: addressWidth * 2 + 1(reserved).
 //
@@ -30,7 +51,16 @@
 //
 // When the total number of registers is not a power of 2 there are free register addresses: For this reason
 //   the number of registers available by default seem so off (3, 7, 15, 31, ...). These are the most memory
-//   efficient and fastest.
+//   and speed efficient. More registers mean a wider address, which is more data to transmit, which is slower.
+//   These numbers each offer the highest number of registers without making the data transaction slower.
+//
+// The parameters are by default limited to 255 registers with 64 bits each. However, this restriction is only
+//   on the Arduino side. The FPGA side can take much more than that, but you would have to adapt the 
+//   Arduino library.
+//
+// For now, only one JTAG_Interface can be instanced in one FPGA program. (Only the first one is chosen 
+//   for transaction). In the future, it might be possible to use multiple instances and reference them
+//   using their ID, but it would be more complicated. Let me know if you would be interested in this feature!
 //
 
 module jtag_memory #(
