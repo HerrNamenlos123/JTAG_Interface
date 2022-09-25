@@ -6,10 +6,6 @@
 
 This Arduino library takes care of uploading your custom FPGA bitstream, as well as communicating with your FPGA program at runtime.
 
-<a href="https://www.buymeacoffee.com/herrnamenlos123" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
-</a>
-
 ## What is the JTAG Interface ❓
 
 The JTAG_Interface is a project to help any new developer using the Arduino MKR Vidor 4000 to establish a communication between the CPU and the FPGA. When using a default library like `VidorGraphics` or `VidorPeripherals` the FPGA magically reacts to any command you give it in the Arduino IDE. But as soon as you start to create your own bitstreams using Intel Quartus, you will quickly realize that there is no obvious way to exchange data or commands between the CPU and the FPGA anymore.
