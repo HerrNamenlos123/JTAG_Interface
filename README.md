@@ -84,15 +84,13 @@ Well, there's not much more to say, just try playing around. If something is not
 
 This library is already successfully being used at a well-known university, but I want to get permission before I mention the name here. So keep an eye on this chapter in the close future :)
 
-## Supporting 💪
+## Support 💪
 
-I did all of this like most of my other projects in my free time and I do not get any money for that. I just like what I do, do it for myself and want to share it so that others can benefit too.
+I do all of my projects in my free time and I do not get any money for that. I just like what I do, do it for myself and want to share it so that others can benefit too.
 
-Exactly for this reason would it be even more amazing if you could find the motivation to buy me a coffee :)
+I like to drink beer and any support is greatly apprechiated :)
 
-<a href="https://www.buymeacoffee.com/herrnamenlos123" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
-</a>
+<a href="https://www.buymeacoffee.com/herrnamenlos123"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=herrnamenlos123&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ## Final notes 📃
 
