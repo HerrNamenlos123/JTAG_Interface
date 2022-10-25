@@ -80,9 +80,18 @@ Create a profile that takes in the `output_files/MKRVIDOR4000.ttf` of your Quart
 
 Well, there's not much more to say, just try playing around. If something is not working and you need help, refer to the last section.
 
-## Who is using this?🎓
+## Radboud University Nijmegen🎓
 
-This library is already successfully being used at a well-known university, but I want to get permission before I mention the name here. So keep an eye on this chapter in the close future :)
+<a href=https://www.ru.nl/en>
+    <img src="assets/Radboud-University-Nijmegen-logo.png" alt="Radboud University Nijmegen logo" align="right" height="200px">
+</a>
+
+This project is backed by the [Radboud Universiteit Nijmegen](https://www.ru.nl/en) in the Netherlands. The Radboud University's Department of AI offers a course in [Neuromorphic Engineering](https://en.wikipedia.org/wiki/Neuromorphic_engineering) and the decision fell onto the Arduino MKR Vidor 4000. As a result, students of the neuromorphic enginnering course now use this Arduino library to test FPGA implementations for simulating nervous systems.  
+Thank you for the collaboration!
+
+## Final notes 📃
+
+This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the releases.
 
 ## Support 💪
 
@@ -91,10 +100,6 @@ I do all of my projects in my free time and I do not get any money for that. I j
 I like to drink beer and any support is greatly apprechiated :)
 
 <a href="https://www.buymeacoffee.com/herrnamenlos123"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=herrnamenlos123&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
-
-## Final notes 📃
-
-This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the releases.
 
 ## Something's not working... 💩
 
