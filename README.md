@@ -94,7 +94,7 @@ Thank you for the collaboration!
 
 ## Final notes 📃
 
-This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the releases.
+This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the [Releases](https://github.com/HerrNamenlos123/JTAG_Interface/releases).
 
 ## Support 💪
 
