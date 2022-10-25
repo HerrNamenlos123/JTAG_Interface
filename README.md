@@ -86,7 +86,10 @@ Well, there's not much more to say, just try playing around. If something is not
     <img src="assets/Radboud-University-Nijmegen-logo.png" alt="Radboud University Nijmegen logo" align="right" width="40%">
 </a>
 
-This project is backed by the [Radboud Universiteit Nijmegen](https://www.ru.nl/en) in the Netherlands. The Radboud University's Department of AI offers a course in [Neuromorphic Engineering](https://en.wikipedia.org/wiki/Neuromorphic_engineering) and the decision fell onto the Arduino MKR Vidor 4000. As a result, students of the neuromorphic enginnering course now use this Arduino library to test FPGA implementations for simulating nervous systems.  
+This project is backed by the [Radboud Universiteit Nijmegen](https://www.ru.nl/en) in the Netherlands.  
+
+The Radboud University's Department of AI offers a course in [Neuromorphic Engineering](https://en.wikipedia.org/wiki/Neuromorphic_engineering) and the decision fell onto the Arduino MKR Vidor 4000. As a result, students of the neuromorphic enginnering course now use this Arduino library to test FPGA implementations for simulating nervous systems.  
+
 Thank you for the collaboration!
 
 ## Final notes 📃
