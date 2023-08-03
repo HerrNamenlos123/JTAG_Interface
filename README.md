@@ -108,6 +108,7 @@ I like to drink beer and any support is greatly apprechiated :)
 
 In case something isn't working as expected or you need help in your project, don't hesitate to contact me at: <herrnamenlos123@gmail.com>. No need to be shy :)
 
-Additionally, in case you find a bug or want to request a feature or similar, you can go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) and create one.
+Additionally, in case you find a bug or want to request a feature or similar, you can go to the [issues tab](https://github.com/HerrNamenlos123/JTAG_Interface/issues) and create one.  
+If you encounter a problem, you should preferrably create an issue on GitHub rather than writing a private email, because then it will help anyone with the same problem in the future.
 
 Now as that's out of the way, let's get coding and create something amazing!
