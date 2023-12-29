@@ -92,6 +92,12 @@ The Radboud University's Department of AI offers a course in [Neuromorphic Engin
 
 Thank you for the collaboration!
 
+## GitHub Discussions💭
+
+This repository now has [discussions](https://github.com/HerrNamenlos123/JTAG_Interface/discussions)!  
+Feel free to open a discussion to ask for help, share your ideas, whatever you like.  
+Remember to always stay respectful!
+
 ## Final notes 📃
 
 This library was tested with Intel Quartus lite 21.1.1.850. If you need the old version for Quartus 18.1, it can be found in the [Releases](https://github.com/HerrNamenlos123/JTAG_Interface/releases).
